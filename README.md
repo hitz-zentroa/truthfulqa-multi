@@ -1,0 +1,2 @@
+# truthfulqa-multi
+Multilingual TruthfulQA
