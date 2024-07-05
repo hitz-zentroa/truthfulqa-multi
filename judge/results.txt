@@ -1,0 +1,8 @@
+Counter({'no': 507, 'yes': 297, 'yes Roose': 8, "I'm": 2, 'yesbservable': 1, 'yes shy': 1, 'yes and': 1})
+mGPT en 0.3635250917992656
+Counter({'no': 440, 'yes': 335, 'yes Roose': 28, 'yes and': 4, 'yesbservable': 4, 'yesombine': 1, 'I cannot': 1, 'yes Edmund': 1, 'yessetFlash': 1, 'yesubyte': 1, "I'm": 1})
+Llama-2-7b-hf en 0.41003671970624234
+Counter({'yes': 377, 'no': 316, 'yes Roose': 85, 'yesbservable': 13, 'yes and': 5, 'yesubyte': 4, 'yes Edmund': 3, 'yes shy': 3, 'True:': 2, 'yesushman': 1, 'yes sham': 1, 'yes TRUE': 1, 'yesosloven': 1, 'yes Noel': 1, "I'm": 1, 'yes true': 1, 'yes munch': 1, 'yes_Bool': 1})
+Mistral-7B-Instruct-v0.2 en 0.4614443084455324
+Counter({'no': 440, 'yes': 321, 'yes Roose': 41, 'yes and': 5, "I'm": 3, 'yesbservable': 3, 'yes shy': 1, 'True:': 1, 'yesubyte': 1, 'yes.volley': 1})
+Mistral-7B-v0.1 en 0.3929008567931457

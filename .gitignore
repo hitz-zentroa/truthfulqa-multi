@@ -1,0 +1,7 @@
+*.db
+pretrained*.jsonl
+samples_*.jsonl
+parallelize*.jsonl
+logs
+env
+wandb
