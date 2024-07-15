@@ -1,12 +1,12 @@
 AUTHOR=$1
 MODEL=$2
 
-for lang in en ca es eu gl
+for lang in eu gl en ca es 
     do
     lm_eval --model hf \
-        --model_args pretrained=$AUTHOR/$MODEL,attn_implementation="flash_attention_2",parallelize=True \
+        --model_args pretrained=$AUTHOR/$MODEL,parallelize=True \
         --tasks truthfulqa-multi_mc2_$lang \
-        --batch_size auto \
+        --batch_size 8 \
         --log_samples \
         --device cuda \
         --output_path results/mc2/$lang \
