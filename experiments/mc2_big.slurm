@@ -4,8 +4,8 @@
 #SBATCH --gres=gpu:3
 #SBATCH --mem=18G
 #SBATCH --time=24:00:00
-#SBATCH --output=logs/%j.out
-#SBATCH --error=logs/%j.err
+#SBATCH --output=logs/mc2_%j.out
+#SBATCH --error=logs/mc2_%j.err
 
 export PATH=$PATH":/gaueko0/users/bcalvo/"
 export PATH=$PATH":/gaueko0/users/bcalvo/.local/bin/"

@@ -10,6 +10,8 @@ for lang in en ca es eu gl
         --log_samples \
         --device cuda \
         --output_path results/mc2/$lang \
-        --apply_chat_template
+        --apply_chat_template \
+        --fewshot_as_multiturn \
+        --num_fewshot 6
 
     done
