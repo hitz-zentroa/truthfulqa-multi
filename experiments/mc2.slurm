@@ -15,4 +15,4 @@ source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/env/bin/activate
 
 sh experiments/run/experiment_mc2.sh meta-llama Meta-Llama-3-8B-Instruct
 sh experiments/run/experiment_mc2.sh mistralai Mistral-7B-Instruct-v0.2
-sh experiments/run/experiment_mc2.sh google gemma-2-9b-it
+sh experiments/run/experiment_mc2_eager.sh google gemma-2-9b-it

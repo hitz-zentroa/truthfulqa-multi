@@ -5,7 +5,7 @@ MODEL=$2
 for lang in en ca es eu gl
     do
     lm_eval --model hf \
-        --model_args pretrained=$AUTHOR/$MODEL,parallelize=True \
+        --model_args pretrained=$AUTHOR/$MODEL,parallelize=True,attn_implementation="flash_attention_2" \
         --tasks truthfulqa-multi_gen_$lang \
         --batch_size 8 \
         --log_samples \

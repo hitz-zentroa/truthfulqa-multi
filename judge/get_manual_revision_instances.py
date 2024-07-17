@@ -3,13 +3,9 @@ import random
 import csv
 import os
 import re
+import glob
 
 random.seed(2024)
-
-def find_file(path):
-    for f in os.listdir(path):
-        if re.match('sample', f):
-            return f
 
 
 def find_owner(model):
@@ -27,9 +23,13 @@ def find_owner(model):
         return 'google'
     else:
         raise Exception("Model type not defined.") 
+    
+def latest_file_find(model, type_model, language):
+    list_of_files = glob.glob(r'results/gen/'+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
+    latest_files = sorted(list_of_files, key=os.path.getctime, reverse=True)
+    return latest_files[0]
 
 def main():
-    input_path = 'results/gen/'
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['gemma-2-27b-it', 'Meta-Llama-3-70B-Instruct', 'Meta-Llama-3-8B-Instruct']
 
@@ -37,17 +37,19 @@ def main():
     #print(indices)
 
     for lang in langs:
+        
         with open('judge/manual_review/sample_'+lang+'.csv', 'w') as o:
             w = csv.writer(o)
             w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
             for model in models:
-                path = input_path+lang+'/'+find_owner(model)+'__'+model+'/'
+                path = latest_file_find(model, find_owner(model), lang)
+                #path = input_path+lang+'/'+find_owner(model)+'__'+model+'/'
                 #print(path)
-                file = find_file(path)
+                #file = find_file(path)
                 #print(file)
 
                 data = []
-                with open(path+file) as f:
+                with open(path) as f:
                     for line in f:
                         data.append(json.loads(line))
 
