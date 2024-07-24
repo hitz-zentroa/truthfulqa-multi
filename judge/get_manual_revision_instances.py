@@ -35,13 +35,16 @@ def main():
 
     indices = random.sample(list(range(0,817)), 100)
     #print(indices)
+    
 
     for lang in langs:
+        iaa_data = []
         
         with open('judge/manual_review/sample_'+lang+'.csv', 'w') as o:
             w = csv.writer(o)
             w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
-            for model in models:
+            for i, model in enumerate(models):
+                next_iaa_instance = i*2
                 path = latest_file_find(model, find_owner(model), lang)
                 #path = input_path+lang+'/'+find_owner(model)+'__'+model+'/'
                 #print(path)
@@ -55,12 +58,33 @@ def main():
 
                 inspect_data = [line for i, line in enumerate(data) if i in indices]
 
-                for row in inspect_data:
+                for e,row in enumerate(inspect_data):
                     w.writerow([str(row['doc_id'])+'__'+model, 
                                 row['doc']['question'],
                                 '\n'.join(row['doc']['correct_answers']), 
                                 '\n'.join(row['doc']['incorrect_answers']),
                                 row['filtered_resps'][0]])
+
+                    #print(next_iaa_instance)
+
+                    if e==next_iaa_instance:
+                        iaa_data.append([str(row['doc_id'])+'__'+model, 
+                                row['doc']['question'],
+                                '\n'.join(row['doc']['correct_answers']), 
+                                '\n'.join(row['doc']['incorrect_answers']),
+                                row['filtered_resps'][0]])
+                        next_iaa_instance+=6
+
+
+        print(len(iaa_data))
+
+        with open('judge/manual_review/iaa_'+lang+'.csv', 'w') as o:
+            w = csv.writer(o)
+            w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
+            for instance in iaa_data:
+                w.writerow(instance)
+
+                
 
             
 
