@@ -40,14 +40,14 @@ def main():
     for lang in langs:
         iaa_data = []
         
-        with open('judge/manual_review/sample_'+lang+'.csv', 'w') as o:
+        with open('judge/manual_review/sample2_'+lang+'.csv', 'w') as o:
             w = csv.writer(o)
             w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
             for i, model in enumerate(models):
                 next_iaa_instance = i*2
                 path = latest_file_find(model, find_owner(model), lang)
                 #path = input_path+lang+'/'+find_owner(model)+'__'+model+'/'
-                #print(path)
+                print(path)
                 #file = find_file(path)
                 #print(file)
 
