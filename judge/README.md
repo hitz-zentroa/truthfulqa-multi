@@ -1,5 +1,6 @@
 
-The instances for the manual revision datasets were obtained with ```get_manual_revision_instances.py```
+The instances for the manual revision datasets were obtained with ```judge/manual_review/get_manual_revision_instances.py```
+The IAA of the evaluations was calculated with ```judge/manual_review/iaa_evaluation.py```
 
 To translate the training data for the judge, we performed:
 ```
