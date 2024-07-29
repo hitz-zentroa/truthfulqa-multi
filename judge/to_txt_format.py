@@ -16,10 +16,10 @@ def main():
 
     print(len(questions), len(answers))
 
-    with open('judge/data/info_questions_for_translation.txt', 'w') as o:
-        for line in questions:
-            o.write(line)
-            o.write('\n')
+    # with open('judge/data/info_questions_for_translation.txt', 'w') as o:
+    #     for line in questions:
+    #         o.write(line)
+    #         o.write('\n')
 
     with open('judge/data/info_answers_for_translation.txt', 'w') as o:
         for line in answers:

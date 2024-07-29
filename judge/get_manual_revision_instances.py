@@ -40,7 +40,7 @@ def main():
     for lang in langs:
         iaa_data = []
         
-        with open('judge/manual_review/sample2_'+lang+'.csv', 'w') as o:
+        with open('judge/manual_review/sample_'+lang+'.csv', 'w') as o:
             w = csv.writer(o)
             w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
             for i, model in enumerate(models):
