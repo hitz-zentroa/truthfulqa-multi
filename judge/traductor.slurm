@@ -18,3 +18,14 @@ for lang in  cat_Latn eus_Latn glg_Latn spa_Latn
     --model_name facebook/nllb-200-3.3B
     
     done
+
+for lang in  cat_Latn eus_Latn glg_Latn spa_Latn
+    do
+    python3 ../Easy-Translate/translate.py \
+    --sentences_path judge/data/truth_answers_for_translation.txt \
+    --output_path judge/data/translations/truth_answers_$lang.txt \
+    --source_lang eng_Latn \
+    --target_lang $lang \
+    --model_name facebook/nllb-200-3.3B
+    
+    done

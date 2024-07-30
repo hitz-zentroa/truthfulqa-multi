@@ -6,7 +6,7 @@ from collections import Counter
 def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
 
-    # TODO: for each language
+    # for each language
     for lang in langs:
         # load the results evaluated/lang
         with open('judge/manual_review/evaluated/'+lang+'.csv') as f:

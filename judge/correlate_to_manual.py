@@ -7,7 +7,7 @@ def main():
     models = ['gemma-2-27b-it', 'Meta-Llama-3-70B-Instruct', 'Meta-Llama-3-8B-Instruct']
     judge_model = 'Judge-Llama-3-8B-Instruct-eng'
 
-    # TODO: for each language
+    # for each language
     for lang in langs:
         for model in models:
 

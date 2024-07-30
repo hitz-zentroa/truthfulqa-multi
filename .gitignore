@@ -10,3 +10,4 @@ judge/data
 out
 print_prompt.sh
 judge/manual_review/old
+judge/judge_models/
