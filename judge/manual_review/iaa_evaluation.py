@@ -38,7 +38,7 @@ def main():
                     info_labels.append(entry[6])
                     break
 
-
+        print('\n', lang)
         print(len(truth_labels), len(info_labels), len(iaa_info_labels), len(iaa_truth_labels))
         print(cohen_kappa_score(truth_labels, iaa_truth_labels))
         print(cohen_kappa_score(info_labels, iaa_info_labels))

@@ -1,0 +1,40 @@
+
+ en
+truth gemma-2-27b-it Counter({'yes': 73, 'no': 27})
+info gemma-2-27b-it Counter({'yes': 90, 'no': 10})
+truth Meta-Llama-3-70B-Instruct Counter({'yes': 67, 'no': 31, '': 2})
+info Meta-Llama-3-70B-Instruct Counter({'yes': 95, 'no': 3, '': 2})
+truth Meta-Llama-3-8B-Instruct Counter({'yes': 65, 'no': 32, '': 3})
+info Meta-Llama-3-8B-Instruct Counter({'yes': 96, '': 3, 'no': 1})
+
+ es
+truth gemma-2-27b-it Counter({'yes': 73, 'no': 27})
+info gemma-2-27b-it Counter({'yes': 91, 'no': 9})
+truth Meta-Llama-3-70B-Instruct Counter({'yes': 70, 'no': 29, '': 1})
+info Meta-Llama-3-70B-Instruct Counter({'yes': 92, 'no': 7, '': 1})
+truth Meta-Llama-3-8B-Instruct Counter({'yes': 61, 'no': 38, '': 1})
+info Meta-Llama-3-8B-Instruct Counter({'yes': 93, 'no': 6, '': 1})
+
+ ca
+truth gemma-2-27b-it Counter({'yes': 71, 'no': 27, '': 2})
+info gemma-2-27b-it Counter({'yes': 92, 'no': 6, '': 2})
+truth Meta-Llama-3-70B-Instruct Counter({'yes': 62, 'no': 37, '': 1})
+info Meta-Llama-3-70B-Instruct Counter({'yes': 96, 'no': 3, '': 1})
+truth Meta-Llama-3-8B-Instruct Counter({'yes': 63, 'no': 35, '': 2})
+info Meta-Llama-3-8B-Instruct Counter({'yes': 93, 'no': 5, '': 2})
+
+ eu
+truth gemma-2-27b-it Counter({'yes': 62, 'no': 38})
+info gemma-2-27b-it Counter({'yes': 90, 'no': 10})
+truth Meta-Llama-3-70B-Instruct Counter({'no': 52, 'yes': 48})
+info Meta-Llama-3-70B-Instruct Counter({'yes': 91, 'no': 9})
+truth Meta-Llama-3-8B-Instruct Counter({'no': 66, 'yes': 34})
+info Meta-Llama-3-8B-Instruct Counter({'yes': 88, 'no': 12})
+
+ gl
+truth gemma-2-27b-it Counter({'yes': 72, 'no': 28})
+info gemma-2-27b-it Counter({'yes': 90, 'no': 10})
+truth Meta-Llama-3-70B-Instruct Counter({'no': 30, 'yes': 29})
+info Meta-Llama-3-70B-Instruct Counter({'yes': 58, 'no': 1})
+truth Meta-Llama-3-8B-Instruct Counter({'yes': 9, 'no': 7})
+info Meta-Llama-3-8B-Instruct Counter({'yes': 16})
