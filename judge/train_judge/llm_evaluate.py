@@ -5,6 +5,8 @@ from trl import setup_chat_format
 import torch
 from collections import Counter
 import argparse
+import glob
+import os
 
 def find_owner(model):
     if model == 'mGPT':
@@ -19,34 +21,45 @@ def find_owner(model):
         return 'bigscience'
     else:
         raise Exception("Model type not defined.") 
+    
+def latest_file_find(model, type_model, language):
+    list_of_files = glob.glob(r'results/gen/'+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
+    latest_files = sorted(list_of_files, key=os.path.getctime, reverse=True)
+    return latest_files[0]
 
 def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--models', nargs='+', default=['mGPT'])
     #parser.add_argument('--metrics', nargs='+', default=['bleu'])
-    parser.add_argument('--input_path', type=str, default='../lm-evaluation-harness/output/')
-    parser.add_argument('--output_path', type=str, default='output/')
+    #parser.add_argument('--input_path', type=str, default='../lm-evaluation-harness/output/')
+    parser.add_argument('--output_path', type=str, default='judge/judge_output/')
     #parser.add_argument('--device', type=int, default=-1)
     #parser.add_argument('--cache_dir', type=str)
     parser.add_argument('--langs', nargs='+', default=['en'])
-    parser.add_argument('--judge_model', type=str, default='Judge-Llama-3-8B-Instruct-eng')
-    parser.add_argument('--base_model', type=str, default="meta-llama/Meta-Llama-3-8B-Instruct")
+    parser.add_argument('--judge_model', type=str, default=None)
+    parser.add_argument('--base_model', type=str, default=None)
     args = parser.parse_args()
 
-    tokenizer = AutoTokenizer.from_pretrained(args.base_model)
-    model = AutoModelForCausalLM.from_pretrained(args.base_model, low_cpu_mem_usage=True, return_dict=True,
-                torch_dtype=torch.float16, device_map="auto")
-    model, tokenizer = setup_chat_format(model, tokenizer)
-    model = PeftModel.from_pretrained(model, args.judge_model)
+    if args.base_model:
+        tokenizer = AutoTokenizer.from_pretrained(args.base_model)
+        model = AutoModelForCausalLM.from_pretrained(args.base_model, low_cpu_mem_usage=True, return_dict=True,
+                    torch_dtype=torch.float16, device_map="auto")
+        model, tokenizer = setup_chat_format(model, tokenizer)
+        model = PeftModel.from_pretrained(model, args.judge_model)
+    else:
+        tokenizer = AutoTokenizer.from_pretrained(args.judge_model)
+        model = AutoModelForCausalLM.from_pretrained(args.judge_model)
 
     for evaluated_model in args.models:
         for lang in args.langs:
-            file = args.input_path+lang+'/pretrained='+find_owner(evaluated_model)+'__'+evaluated_model+'_truthfulqa-multi_gen_'+lang+'.jsonl'
+            file = latest_file_find(evaluated_model, find_owner(evaluated_model), lang)
+            #file = args.input_path+lang+'/pretrained='+find_owner(evaluated_model)+'__'+evaluated_model+'_truthfulqa-multi_gen_'+lang+'.jsonl'
 
             with open(file) as f:
-                data = json.load(f)
-            #print(data[0]['filtered_resps'])
+                data=[]
+                for line in f:
+                    data.append(json.loads(line))
 
 
             def format_chat_template(instruction):
@@ -82,7 +95,8 @@ def main():
                     #print(result)
                     line['label'] = result
             
-            with open(args.output_path+evaluated_model+'__'+lang+'__'+args.judge_model+'__results.jsonl', 'w') as o:
+            model_name = args.judge_model.split('/')[-1]
+            with open(args.output_path+evaluated_model+'__'+lang+'__'+model_name+'__results.jsonl', 'w') as o:
                 json.dump(data, o, indent=5)
 
             count = []

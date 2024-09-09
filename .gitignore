@@ -1,14 +1,13 @@
 *.db
 pretrained*.jsonl
-samples_*.jsonl
 parallelize*.jsonl
 logs
 env
 wandb
-results
 judge/data
 out
 print_prompt.sh
 judge/manual_review/old
 judge/judge_models/
 *no_instruct.py
+results/mc2/
