@@ -9,5 +9,7 @@ out
 print_prompt.sh
 judge/manual_review/old
 judge/judge_models/
-*no_instruct.py
 results/mc2/
+results/*.csv
+*old*
+judge/judge_output/

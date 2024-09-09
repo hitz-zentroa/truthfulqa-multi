@@ -15,13 +15,14 @@ source ../truthfulqa-multi/env/bin/activate
 
 HF_HOME='/ixadata/users/bcalvo/cache'
 
-#python3 judge/train_judge/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
-#                                        --judge_model judge/judge_models/Judge-Llama-3-8B-Instruct-eng \
-#                                        --base_model meta-llama/Meta-Llama-3-8B-Instruct \
-#                                        --langs en es ca eu gl 
-
 python3 judge/train_judge/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
+                                        --judge_model judge/judge_models/Judge-Llama-3-8B-Instruct-eng \
+                                        --base_model meta-llama/Meta-Llama-3-8B-Instruct \
+                                        --langs en es ca eu gl \
+                                        --instruct
+
+python3 judge/train_judge/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct \
                                         --judge_model allenai/truthfulqa-truth-judge-llama2-7B \
-                                        --langs en es ca eu gl
+                                        --langs en es ca eu gl 
 
 
