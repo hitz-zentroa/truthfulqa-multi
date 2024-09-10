@@ -5,16 +5,25 @@ from sklearn.metrics import cohen_kappa_score
 def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it']
-    judge_models = ['Judge-Llama-3-8B-Instruct-eng', 'truthfulqa-truth-judge-llama2-7B']
+    #judge_models = ['truthfulqa-truth-judge-llama2-7B', 'llama3-1_7B_truth_judge_final'] # 'Judge-Llama-3-8B-Instruct-eng', 
+    judge_models = [{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'judges_what':'truth'},
+                    {'name':'new-llama3-truth', 'files_name': 'llama3-1_7B_truth_judge_final', 'judges_what':'truth'}]
 
     # for each language
+    
     for judge in judge_models:
-        for lang in langs:
-            for model in models:
-
-                # load the results from the llm_evaluate.py 
-                with open('judge/judge_output/'+model+'__'+lang+'__'+judge+'__results.jsonl') as f:
-                    results = json.load(f)
+        print('model_name', '\t', 'judge_name', '\t\t', '\t'.join(langs))
+        errors = 0
+        for model in models:
+            out_raw = []
+            for lang in langs:
+                try:
+                    # load the results from the llm_evaluate.py 
+                    with open('judge/judge_output/'+model+'__'+lang+'__'+judge['files_name']+'__results.jsonl') as f:
+                        results = json.load(f)
+                except FileNotFoundError:
+                    print('judge/judge_output/'+model+'__'+lang+'__'+judge['files_name']+'__results.jsonl')
+                    continue
 
                 # load the manual evaluation
                 with open('judge/manual_review/evaluated/'+lang+'.csv') as f:
@@ -40,11 +49,15 @@ def main():
                             elif 'no' in entry['label']:
                                 judge_labels.append('no')
                             else:
+                                #print('label:', entry['label']) # TODO: this has some instances, review what to do with this
+                                errors += 1
                                 judge_labels.append('nsnc')
                     
 
                 # compare the evaluations of both informativeness and truthfulness
-                print(model, judge, lang, cohen_kappa_score(judge_labels, manual_labels))
+                out_raw.append(str(round(cohen_kappa_score(judge_labels, manual_labels), 2)))
+            print(model[:10], '\t', judge['name'], '\t', '\t'.join(out_raw))
+        print('Errors in the labels:', str(errors))
     
 
 if __name__ == '__main__':

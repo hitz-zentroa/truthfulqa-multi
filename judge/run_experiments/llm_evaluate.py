@@ -40,7 +40,7 @@ def main():
     #parser.add_argument('--cache_dir', type=str)
     parser.add_argument('--langs', nargs='+', default=['en'])
     parser.add_argument('--judge_model', type=str, default=None)
-    parser.add_argument('--base_model', type=str, default=None)
+    parser.add_argument('--base_model', type=str, default=None) # when using lora
     parser.add_argument('--instruct', action='store_true')
     args = parser.parse_args()
 
