@@ -1,0 +1,20 @@
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 hf-llama2-truth 	 0.71	0.62	0.43	0.09	0.48
+Meta-Llama 	 hf-llama2-truth 	 0.73	0.63	0.63	0.25	0.59
+gemma-2-27 	 hf-llama2-truth 	 0.51	0.43	0.5	0.24	0.49
+Errors in the labels: 24
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 new-llama3-truth 	 0.76	0.7	0.61	0.3	0.64
+Meta-Llama 	 new-llama3-truth 	 0.67	0.64	0.66	0.46	0.58
+gemma-2-27 	 new-llama3-truth 	 0.6	0.47	0.62	0.55	0.55
+Errors in the labels: 0
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 new-llama3-info 	 0.66	yes	0.32	0.11	0.18
+Meta-Llama 	 new-llama3-info 	 yes	yes	yes	0.15	-0.02
+gemma-2-27 	 new-llama3-info 	 0.17	0.15	0.27	0.22	yes
+Errors in the labels: 1
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 hf-llama2-info 	 0.49	0.27	0.22	0.31	0.26
+Meta-Llama 	 hf-llama2-info 	 yes	yes	-0.03	0.12	yes
+gemma-2-27 	 hf-llama2-info 	 0.14	0.3	0.16	0.09	0.21
+Errors in the labels: 0

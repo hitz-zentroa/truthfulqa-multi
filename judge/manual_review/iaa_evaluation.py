@@ -40,6 +40,10 @@ def main():
 
         print('\n', lang)
         print(len(truth_labels), len(info_labels), len(iaa_info_labels), len(iaa_truth_labels))
+        for l in truth_labels, info_labels, iaa_info_labels, iaa_truth_labels:
+            for element in l:
+                if element not in ['yes', 'no']:
+                    print('error', element)
         print(cohen_kappa_score(truth_labels, iaa_truth_labels))
         print(cohen_kappa_score(info_labels, iaa_info_labels))
 

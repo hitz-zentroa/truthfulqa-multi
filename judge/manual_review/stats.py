@@ -17,6 +17,9 @@ def main():
                 data.append(line)
         stats_by_model = {}
         for entry in data:
+            if entry[5] not in ['yes', 'no'] or entry[6] not in ['yes', 'no']: # SEE WRONGLY ANNOTATED INSTANCES
+                print(lang, entry[0], entry[5], entry[6])
+
             model = entry[0].split('__')
             #print(list(stats_by_model.keys()))
             if model[1] not in list(stats_by_model.keys()):
