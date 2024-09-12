@@ -8,7 +8,10 @@ def main():
     judge_models = [{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'label':'truth'},
                     {'name':'new-llama3-truth', 'files_name': 'llama3-1_7B_truth_judge_final', 'label':'truth'}, # now called llama-3-truth-new
                     {'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
-                    {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'}]
+                    {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
+                    {'name':'llama3.1-truth', 'files_name': 'llama3.1.2_truth_judge', 'label':'truth'},
+                    {'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
+                    {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'}]
 
     # for each language
     

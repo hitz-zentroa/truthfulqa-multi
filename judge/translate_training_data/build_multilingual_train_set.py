@@ -67,7 +67,7 @@ def main():
 
             
             # build the final json just as in the finetune_truth.jsonl and save
-            with open('judge/data/finetune_'+dataset+'_multi.jsonl', 'w') as o:
+            with open('judge/data/finetune_'+dataset+'_multi.json', 'w') as o:
                 json.dump(new_data, o, indent=5)
     
 

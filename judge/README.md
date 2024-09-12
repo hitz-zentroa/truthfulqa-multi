@@ -13,17 +13,14 @@ sbatch judge/translate_training_data/traductor.slurm
 python judge/translate_training_data/build_multilingual_train_set.py #TODO
 ```
 
-To train the model:
-```
-sbatch judge/train_judge/finetune.slurm
-```
+To train the model: use allenai repository "truthfulqa_reeval" with the script ```allenai_script.slurm```
 
 To evaluate with the judge:
 ```
-sbatch judge/train_judge/generate.slurm
+sbatch judge/run_experiments/generate_first.slurm
 ```
 
 To correlate the judge results to the manual evaluation:
 ```
-python judge/correlate_to_manual.py # TODO
+python judge/correlate_to_manual.py 
 ```
