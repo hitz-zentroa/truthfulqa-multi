@@ -91,13 +91,13 @@ def main():
                 outputs = model.generate(**inputs, max_new_tokens=2)
                 out = tokenizer.batch_decode(outputs, skip_special_tokens=True, skip_prompt=True)[0]
                 #out = out[len(text):]
+ 
+                #if out.split('\n')[-1].strip() != '':
+                result = out.split('\nTrue:')[-1].strip() 
+                #else:
+                #    result = out.split('\nTrue:')[-2].strip()
 
-                if out.split('\n')[-1].strip() != '':
-                    result = out.split('\n[a-zA-Z]:')[-1].strip()
-                else:
-                    result = out.split('\n[a-zA-Z]:')[-2].strip()
-
-                print(result)
+                #print(result, flush=True)
 
                 line['label'] = result
             

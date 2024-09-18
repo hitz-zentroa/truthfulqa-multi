@@ -6,19 +6,22 @@ def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it']
     judge_models = [{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'label':'truth'},
-                    #{'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
+                    {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
                     {'name':'new-llama3-truth', 'files_name': 'llama3-1_7B_truth_judge_final', 'label':'truth'}, # now called llama-3-truth-new
-                    #{'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
+                    {'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
                     {'name':'llama3.1-truth', 'files_name': 'llama3.1.2_truth_judge', 'label':'truth'},
                     #{'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
-                    {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'}]
+                    {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'},
+                    {'name':'gemma9b\t', 'files_name': 'gemma9b_truth_judge', 'label':'truth'},
+                    {'name':'llama3.1-instruct', 'files_name': 'llama3.1_instruct_truth_judge', 'label':'truth'}]
 
     # for each language
-    
+    avg_models = {}
+    for m in judge_models:
+        avg_models[m['name']] = []
+
     for judge in judge_models:
-        avg_models = {}
-        for m in models:
-            avg_models[m] = []
+        print('\n', judge)
         avg_lang = {'en':[], 'es':[], 'ca':[], 'eu': [], 'gl': []}
         print('model_name', '\t', 'judge_name', '\t\t', '\t'.join(langs))
         errors = 0
@@ -78,15 +81,23 @@ def main():
                 else:
                     out_raw.append(str(round(cohen_kappa_score(judge_labels, manual_labels), 2)))
                     avg_lang[lang].append(cohen_kappa_score(judge_labels, manual_labels))
-                    avg_models[model].append(cohen_kappa_score(judge_labels, manual_labels))
-
+                    avg_models[judge['name']].append(cohen_kappa_score(judge_labels, manual_labels))
 
             print(model[:10], '\t', judge['name'], '\t', '\t'.join(out_raw))
+        print_avg=[]
         for lang in langs:
-            print(lang, str(round(sum(avg_lang[lang])/len(avg_lang[lang]), 2)))
-        for model in models:
-            print(model, str(round(sum(avg_models[model])/len(avg_models[model]), 2)))
+            try: 
+                print_avg.append(str(round(sum(avg_lang[lang])/len(avg_lang[lang]), 2)))
+            except ZeroDivisionError:
+                print_avg.append('-')
+                break
+        print('Average per language\t\t \t', '\t'.join(print_avg))
         print('Errors in the labels:', str(errors))
+
+    print('\nAverage per model:')
+    for judge in judge_models:
+        print(judge['name'], str(round(sum(avg_models[judge['name']])/len(avg_models[judge['name']]), 2)))
+        
     
 
 if __name__ == '__main__':

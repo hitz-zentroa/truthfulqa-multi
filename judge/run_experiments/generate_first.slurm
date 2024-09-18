@@ -62,9 +62,9 @@ source new_env/bin/activate
 #                                         --langs en es ca eu gl \
 #                                         --label truth
 
-python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct \
                                         --judge_model judge/judge_models/llama3.1_instruct_truth_judge \
-                                        --langs en es ca eu gl \
+                                        --langs en \
                                         --label truth \
                                         --instruct
 
