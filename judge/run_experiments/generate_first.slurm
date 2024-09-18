@@ -11,7 +11,7 @@ export PATH=$PATH":/gaueko0/users/bcalvo/"
 export PATH=$PATH":/gaueko0/users/bcalvo/.local/bin/"
 export PATH=/usr/local/cuda-12.1/bin:$PATH
 
-source env/bin/activate
+source new_env/bin/activate
 
 #HF_HOME='/ixadata/users/bcalvo/cache'
 
@@ -47,14 +47,24 @@ source env/bin/activate
 #                                         --langs en es ca eu gl \
 #                                         --label truth
 
-python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
-                                        --judge_model judge/judge_models/llama3.1.2_info_judge \
-                                        --langs en es ca eu gl \
-                                        --label info
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
+#                                         --judge_model judge/judge_models/llama3.1.2_info_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label info
+
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
+#                                         --judge_model judge/judge_models/llama3.1_multi_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth
+
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
+#                                         --judge_model judge/judge_models/gemma9b_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth
 
 python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
-                                        --judge_model judge/judge_models/llama3.1_multi_truth_judge \
+                                        --judge_model judge/judge_models/llama3.1_instruct_truth_judge \
                                         --langs en es ca eu gl \
-                                        --label truth
-
+                                        --label truth \
+                                        --instruct
 

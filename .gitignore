@@ -14,3 +14,4 @@ results/*.csv
 *old*
 judge/judge_output/
 results/results_to_csv.py
+new_env

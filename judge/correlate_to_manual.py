@@ -6,16 +6,20 @@ def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it']
     judge_models = [{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'label':'truth'},
+                    #{'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
                     {'name':'new-llama3-truth', 'files_name': 'llama3-1_7B_truth_judge_final', 'label':'truth'}, # now called llama-3-truth-new
-                    {'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
-                    {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
+                    #{'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
                     {'name':'llama3.1-truth', 'files_name': 'llama3.1.2_truth_judge', 'label':'truth'},
-                    {'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
+                    #{'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
                     {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'}]
 
     # for each language
     
     for judge in judge_models:
+        avg_models = {}
+        for m in models:
+            avg_models[m] = []
+        avg_lang = {'en':[], 'es':[], 'ca':[], 'eu': [], 'gl': []}
         print('model_name', '\t', 'judge_name', '\t\t', '\t'.join(langs))
         errors = 0
         for model in models:
@@ -64,7 +68,7 @@ def main():
                                 errors += 1
                                 judge_labels.append('nsnc')
                     
-
+                
                 # compare the evaluations of both informativeness and truthfulness
                 #print(lang, len(judge_labels), len(manual_labels))
                 if 'yes' not in judge_labels:
@@ -73,7 +77,15 @@ def main():
                     out_raw.append('yes')
                 else:
                     out_raw.append(str(round(cohen_kappa_score(judge_labels, manual_labels), 2)))
+                    avg_lang[lang].append(cohen_kappa_score(judge_labels, manual_labels))
+                    avg_models[model].append(cohen_kappa_score(judge_labels, manual_labels))
+
+
             print(model[:10], '\t', judge['name'], '\t', '\t'.join(out_raw))
+        for lang in langs:
+            print(lang, str(round(sum(avg_lang[lang])/len(avg_lang[lang]), 2)))
+        for model in models:
+            print(model, str(round(sum(avg_models[model])/len(avg_models[model]), 2)))
         print('Errors in the labels:', str(errors))
     
 
