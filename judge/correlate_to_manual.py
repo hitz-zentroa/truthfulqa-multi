@@ -6,14 +6,17 @@ def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it']
     judge_models = [{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'label':'truth'},
-                    {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
+                    #{'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
                     {'name':'new-llama3-truth', 'files_name': 'llama3-1_7B_truth_judge_final', 'label':'truth'}, # now called llama-3-truth-new
-                    {'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
+                    #{'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
                     {'name':'llama3.1-truth', 'files_name': 'llama3.1.2_truth_judge', 'label':'truth'},
                     #{'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
-                    {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'},
                     {'name':'gemma9b\t', 'files_name': 'gemma9b_truth_judge', 'label':'truth'},
-                    {'name':'llama3.1-instruct', 'files_name': 'llama3.1_instruct_truth_judge', 'label':'truth'}]
+                    #{'name':'llama3.1-instruct', 'files_name': 'llama3.1_instruct_truth_judge', 'label':'truth'},
+                    
+                    {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'},
+                    {'name':'multillama3-truth', 'files_name': 'llama-3-multi_truth_judge', 'label':'truth'},
+                    {'name':'multi-gemma9b-truth', 'files_name': 'gemma9b_multi_truth_judge', 'label':'truth'}]
 
     # for each language
     avg_models = {}

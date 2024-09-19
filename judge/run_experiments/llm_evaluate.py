@@ -92,12 +92,10 @@ def main():
                 out = tokenizer.batch_decode(outputs, skip_special_tokens=True, skip_prompt=True)[0]
                 #out = out[len(text):]
  
-                #if out.split('\n')[-1].strip() != '':
-                result = out.split('\nTrue:')[-1].strip() 
-                #else:
-                #    result = out.split('\nTrue:')[-2].strip()
-
-                #print(result, flush=True)
+                if args.label == 'truth':
+                    result = out.split('\nTrue:')[-1].strip() 
+                elif args.label == 'info':
+                    result = out.split('\nHelpful:')[-1].strip() 
 
                 line['label'] = result
             
