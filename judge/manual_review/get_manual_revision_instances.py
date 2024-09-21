@@ -11,7 +11,7 @@ random.seed(2024)
 def find_owner(model):
     if model == 'mGPT':
         return 'ai-forever'
-    elif model in ['Llama-2-7b-hf', 'Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-8B', 'Meta-Llama-3-70B-Instruct']:
+    elif model in ['Llama-2-7b-hf', 'Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-8B', 'Meta-Llama-3-70B-Instruct', 'Meta-Llama-3-70B']:
         return 'meta-llama'
     elif model in ['Mistral-7B-Instruct-v0.2', 'Mistral-7B-v0.1']:
         return 'mistralai'
@@ -22,7 +22,7 @@ def find_owner(model):
     elif model in ['gemma-2-9b-it', 'gemma-2-27b-it']:
         return 'google'
     else:
-        raise Exception("Model type not defined.") 
+        raise Exception("Model owner not defined.") 
     
 def latest_file_find(model, type_model, language):
     list_of_files = glob.glob(r'results/gen/'+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
@@ -31,7 +31,7 @@ def latest_file_find(model, type_model, language):
 
 def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
-    models = ['gemma-2-27b-it', 'Meta-Llama-3-70B-Instruct', 'Meta-Llama-3-8B-Instruct']
+    models = ['Meta-Llama-3-70B']#'gemma-2-27b-it', 'Meta-Llama-3-70B-Instruct', 'Meta-Llama-3-8B-Instruct']
 
     indices = random.sample(list(range(0,817)), 100)
     #print(indices)
@@ -40,7 +40,7 @@ def main():
     for lang in langs:
         iaa_data = []
         
-        with open('judge/manual_review/to_evaluate/sample_'+lang+'.csv', 'w') as o:
+        with open('judge/manual_review/to_evaluate/no_instruct_sample_'+lang+'.csv', 'w') as o:
             w = csv.writer(o)
             w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
             for i, model in enumerate(models):
@@ -76,13 +76,13 @@ def main():
                         next_iaa_instance+=6
 
 
-        print(len(iaa_data))
+        #print(len(iaa_data))
 
-        with open('judge/manual_review/to_evaluate/iaa_'+lang+'.csv', 'w') as o:
-            w = csv.writer(o)
-            w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
-            for instance in iaa_data:
-                w.writerow(instance)
+        # with open('judge/manual_review/to_evaluate/iaa_'+lang+'.csv', 'w') as o:
+        #     w = csv.writer(o)
+        #     w.writerow(['id', 'question', 'correct_answers', 'incorrect_answers', 'model_answer', 'truthfulness', 'informativeness'])
+        #     for instance in iaa_data:
+        #         w.writerow(instance)
 
                 
 
