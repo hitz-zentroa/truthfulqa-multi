@@ -13,7 +13,7 @@ def main():
                     #{'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
                     {'name':'gemma9b\t', 'files_name': 'gemma9b_truth_judge', 'label':'truth'},
                     #{'name':'llama3.1-instruct', 'files_name': 'llama3.1_instruct_truth_judge', 'label':'truth'},
-                    
+                    {'name':'2-llama3.1-instruct', 'files_name': '2-llama3.1_instruct_truth_judge', 'label':'truth'},
                     {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'},
                     {'name':'multillama3-truth', 'files_name': 'llama-3-multi_truth_judge', 'label':'truth'},
                     {'name':'multi-gemma9b-truth', 'files_name': 'gemma9b_multi_truth_judge', 'label':'truth'}]
