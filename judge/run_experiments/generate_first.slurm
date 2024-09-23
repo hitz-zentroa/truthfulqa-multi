@@ -2,7 +2,7 @@
 #SBATCH --job-name=eval_gen
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
-#SBATCH --mem=18G
+#SBATCH --mem=20G
 #SBATCH --time=24:00:00
 #SBATCH --output=logs/judge_%j.out
 #SBATCH --error=logs/judge_%j.err
@@ -62,11 +62,11 @@ source new_env/bin/activate
 #                                         --langs en es ca eu gl \
 #                                         --label truth
 
-python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
-                                        --judge_model judge/judge_models/2-llama3.1_instruct_truth_judge \
-                                        --langs en es ca eu gl \
-                                        --label truth \
-                                        --instruct
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
+#                                         --judge_model judge/judge_models/2-llama3.1_instruct_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth \
+#                                         --instruct
 
 
 # python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
@@ -78,3 +78,28 @@ python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct M
 #                                         --judge_model judge/judge_models/llama-3-multi_truth_judge \
 #                                         --langs en es ca eu gl \
 #                                         --label truth
+
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
+#                                         --judge_model judge/judge_models/gemma9b_instruct_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth \
+#                                         --instruct
+
+
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
+#                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth \
+#                                         --instruct
+
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
+#                                         --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth \
+#                                         --instruct
+
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
+                                        --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
+                                        --langs en es ca eu gl \
+                                        --label truth \
+                                        --instruct
