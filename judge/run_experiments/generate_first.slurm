@@ -86,8 +86,14 @@ source new_env/bin/activate
 #                                         --instruct
 
 
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
+                                        --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+                                        --langs en es ca eu gl \
+                                        --label truth \
+                                        --instruct
+
 # python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
-#                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+#                                         --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
 #                                         --langs en es ca eu gl \
 #                                         --label truth \
 #                                         --instruct
@@ -97,9 +103,3 @@ source new_env/bin/activate
 #                                         --langs en es ca eu gl \
 #                                         --label truth \
 #                                         --instruct
-
-python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
-                                        --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
-                                        --langs en es ca eu gl \
-                                        --label truth \
-                                        --instruct

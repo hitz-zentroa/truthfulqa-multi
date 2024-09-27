@@ -6,8 +6,8 @@ from collections import Counter
 def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it']
-    judge_models = [{'name':'multillama3-truth', 'files_name': 'llama-3-multi_truth_judge', 'label':'truth'},
-                    {'name':'multi-gemma9b-truth', 'files_name': 'gemma9b_multi_truth_judge', 'label':'truth'}]
+    judge_models = [{'name':'multi-inst-llama3.1', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
+                    {'name':'multi-inst-gemma9b', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label':'truth'}]
 
     # for each language
     

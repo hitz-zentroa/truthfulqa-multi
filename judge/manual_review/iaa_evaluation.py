@@ -47,6 +47,9 @@ def main():
         print(cohen_kappa_score(truth_labels, iaa_truth_labels))
         print(cohen_kappa_score(info_labels, iaa_info_labels))
 
+
+    # TODO: podríamos ver IAA por modelo independientemente del idioma, y quizas entenderíamos porque gemma9b siempre es más dificl de correlacionar con el judge
+
     
 
 if __name__ == '__main__':

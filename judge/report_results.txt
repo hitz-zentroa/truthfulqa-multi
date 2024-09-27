@@ -1,24 +1,24 @@
 
 judge
 model_name 	 judge_name 		 en	es	ca	eu	gl
-Meta-Llama 	 multillama3-truth 	 0.68	0.68	0.66	0.48	0.61
-Meta-Llama 	 multillama3-truth 	 0.75	0.73	0.7	0.52	0.69
-gemma-2-27 	 multillama3-truth 	 0.83	0.8	0.79	0.73	0.79
-
-Average for model:
-Meta-Llama-3-8B-Instruct 0.61
-Meta-Llama-3-70B-Instruct 0.69
-gemma-2-27b-it 0.79
-Errors in the labels: 0
-
-judge
-model_name 	 judge_name 		 en	es	ca	eu	gl
-Meta-Llama 	 multi-gemma9b-truth 	 0.7	0.68	0.66	0.48	0.6
-Meta-Llama 	 multi-gemma9b-truth 	 0.77	0.72	0.7	0.53	0.69
-gemma-2-27 	 multi-gemma9b-truth 	 0.84	0.8	0.79	0.71	0.79
+Meta-Llama 	 multi-inst-llama3.1 	 0.68	0.67	0.66	0.48	0.6
+Meta-Llama 	 multi-inst-llama3.1 	 0.77	0.73	0.7	0.51	0.69
+gemma-2-27 	 multi-inst-llama3.1 	 0.83	0.82	0.8	0.74	0.81
 
 Average for model:
 Meta-Llama-3-8B-Instruct 0.6
 Meta-Llama-3-70B-Instruct 0.69
-gemma-2-27b-it 0.79
+gemma-2-27b-it 0.81
+Errors in the labels: 0
+
+judge
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 multi-inst-gemma9b 	 0.66	0.66	0.65	0.47	0.58
+Meta-Llama 	 multi-inst-gemma9b 	 0.76	0.72	0.69	0.52	0.69
+gemma-2-27 	 multi-inst-gemma9b 	 0.84	0.82	0.78	0.73	0.78
+
+Average for model:
+Meta-Llama-3-8B-Instruct 0.58
+Meta-Llama-3-70B-Instruct 0.69
+gemma-2-27b-it 0.78
 Errors in the labels: 0

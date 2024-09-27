@@ -31,12 +31,20 @@ gemma-2-27 	 gemma9b	 	 0.46	0.53	0.58	0.41	0.58
 Average per language		 	 0.65	0.6	0.65	0.46	0.6
 Errors in the labels: 0
 
- {'name': '2-llama3.1-instruct', 'files_name': '2-llama3.1_instruct_truth_judge', 'label': 'truth'}
+ {'name': 'llama3.1-instruct', 'files_name': '2-llama3.1_instruct_truth_judge', 'label': 'truth'}
 model_name 	 judge_name 		 en	es	ca	eu	gl
-Meta-Llama 	 2-llama3.1-instruct 	 0.72	0.65	0.68	0.34	0.6
-Meta-Llama 	 2-llama3.1-instruct 	 0.75	0.68	0.69	0.4	0.75
-gemma-2-27 	 2-llama3.1-instruct 	 0.6	0.63	0.59	0.52	0.53
-Average per language		 	 0.69	0.65	0.65	0.42	0.63
+Meta-Llama 	 llama3.1-instruct 	 0.77	0.71	0.63	0.33	0.56
+Meta-Llama 	 llama3.1-instruct 	 0.72	0.68	0.71	0.44	0.79
+gemma-2-27 	 llama3.1-instruct 	 0.6	0.6	0.56	0.47	0.59
+Average per language		 	 0.69	0.66	0.63	0.41	0.65
+Errors in the labels: 0
+
+ {'name': 'multi-llama3.1-inst', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label': 'truth'}
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 multi-llama3.1-inst 	 0.72	0.62	0.59	0.45	0.68
+Meta-Llama 	 multi-llama3.1-inst 	 0.69	0.67	0.76	0.64	0.79
+gemma-2-27 	 multi-llama3.1-inst 	 0.54	0.57	0.6	0.57	0.66
+Average per language		 	 0.65	0.62	0.65	0.55	0.71
 Errors in the labels: 0
 
  {'name': 'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label': 'truth'}
@@ -63,12 +71,31 @@ gemma-2-27 	 multi-gemma9b-truth 	 0.51	0.56	0.54	0.47	0.59
 Average per language		 	 0.63	0.63	0.62	0.5	0.69
 Errors in the labels: 0
 
+ {'name': 'inst-gemma9b-truth', 'files_name': 'gemma9b_instruct_truth_judge', 'label': 'truth'}
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 inst-gemma9b-truth 	 0.79	0.66	0.62	0.48	0.68
+Meta-Llama 	 inst-gemma9b-truth 	 0.74	0.67	0.6	0.54	0.68
+gemma-2-27 	 inst-gemma9b-truth 	 0.52	0.51	0.57	0.41	0.56
+Average per language		 	 0.68	0.61	0.6	0.48	0.64
+Errors in the labels: 0
+
+ {'name': 'multi-inst-gemma9b-truth', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label': 'truth'}
+model_name 	 judge_name 		 en	es	ca	eu	gl
+Meta-Llama 	 multi-inst-gemma9b-truth 	 0.81	0.66	0.72	0.55	0.68
+Meta-Llama 	 multi-inst-gemma9b-truth 	 0.72	0.67	0.67	0.6	0.83
+gemma-2-27 	 multi-inst-gemma9b-truth 	 0.54	0.6	0.68	0.52	0.62
+Average per language		 	 0.69	0.64	0.69	0.56	0.71
+Errors in the labels: 0
+
 Average per model:
 hf-llama2-truth 0.51
 new-llama3-truth 0.59
 llama3.1-truth 0.57
 gemma9b	 0.59
-2-llama3.1-instruct 0.61
+llama3.1-instruct 0.61
+multi-llama3.1-inst 0.64
 multi-ll3.1-truth 0.62
 multillama3-truth 0.61
 multi-gemma9b-truth 0.62
+inst-gemma9b-truth 0.6
+multi-inst-gemma9b-truth 0.66
