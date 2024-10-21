@@ -4,11 +4,11 @@ from sklearn.metrics import cohen_kappa_score
 
 def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
-    models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it']
+    models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it', 'Meta-Llama-3-70B']
     judge_models = [{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'label':'truth'},
-                    #{'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
+                    {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
                     {'name':'new-llama3-truth', 'files_name': 'llama3-1_7B_truth_judge_final', 'label':'truth'}, 
-                    #{'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
+                    {'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
                     {'name':'llama3.1-truth', 'files_name': 'llama3.1.2_truth_judge', 'label':'truth'},
                     #{'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
                     {'name':'gemma9b\t', 'files_name': 'gemma9b_truth_judge', 'label':'truth'},
@@ -43,7 +43,11 @@ def main():
                     continue
 
                 # load the manual evaluation
-                with open('judge/manual_review/evaluated/'+lang+'.csv') as f:
+                if model == 'Meta-Llama-3-70B':
+                    manual_location = 'judge/manual_review/evaluated/no_instruct/'
+                else:
+                    manual_location = 'judge/manual_review/evaluated/'
+                with open(manual_location+lang+'.csv') as f:
                     r = csv.reader(f)
                     next(r)
                     manual_eval = []

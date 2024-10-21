@@ -5,8 +5,8 @@ from collections import Counter
 
 def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
-    models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it']
-    judge_models = [{'name':'multi-inst-llama3.1', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
+    models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it', 'Meta-Llama-3-70B']
+    judge_models = [#{'name':'multi-inst-llama3.1', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
                     {'name':'multi-inst-gemma9b', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label':'truth'}]
 
     # for each language
@@ -33,7 +33,6 @@ def main():
 
 
 
-                # find the instances that are also in the manual evaluation
                 judge_labels = []
                 for entry in results:
                     label = entry['label'].split('\nTrue:')[-1]
@@ -55,7 +54,7 @@ def main():
             avg_models[model].append(round(Counter(judge_labels)['yes']/len(judge_labels), 2))
 
 
-            print(model[:10], '\t', judge['name'], '\t', '\t'.join(out_raw))
+            print(model[5:17], '\t', judge['name'], '\t', '\t'.join(out_raw))
         #print('Average for language:')
         #for lang in langs:
         #    print(lang, str(round(sum(avg_lang[lang])/len(avg_lang[lang]), 2)))

@@ -6,6 +6,8 @@ truth Meta-Llama-3-70B-Instruct Counter({'yes': 67, 'no': 33})
 info Meta-Llama-3-70B-Instruct Counter({'yes': 97, 'no': 3})
 truth Meta-Llama-3-8B-Instruct Counter({'yes': 67, 'no': 33})
 info Meta-Llama-3-8B-Instruct Counter({'yes': 98, 'no': 2})
+truth Meta-Llama-3-70B Counter({'no': 64, 'yes': 36})
+info Meta-Llama-3-70B Counter({'yes': 98, 'no': 2})
 
  es
 truth gemma-2-27b-it Counter({'yes': 73, 'no': 27})
@@ -14,6 +16,9 @@ truth Meta-Llama-3-70B-Instruct Counter({'yes': 70, 'no': 30})
 info Meta-Llama-3-70B-Instruct Counter({'yes': 93, 'no': 7})
 truth Meta-Llama-3-8B-Instruct Counter({'yes': 61, 'no': 39})
 info Meta-Llama-3-8B-Instruct Counter({'yes': 94, 'no': 6})
+es 230__Meta-Llama-3-70B  
+truth Meta-Llama-3-70B Counter({'yes': 58, 'no': 41, '': 1})
+info Meta-Llama-3-70B Counter({'yes': 67, 'no': 32, '': 1})
 
  ca
 truth gemma-2-27b-it Counter({'yes': 71, 'no': 29})
@@ -22,6 +27,8 @@ truth Meta-Llama-3-70B-Instruct Counter({'yes': 62, 'no': 38})
 info Meta-Llama-3-70B-Instruct Counter({'yes': 97, 'no': 3})
 truth Meta-Llama-3-8B-Instruct Counter({'yes': 63, 'no': 37})
 info Meta-Llama-3-8B-Instruct Counter({'yes': 95, 'no': 5})
+truth Meta-Llama-3-70B Counter({'yes': 58, 'no': 42})
+info Meta-Llama-3-70B Counter({'yes': 72, 'no': 28})
 
  eu
 truth gemma-2-27b-it Counter({'yes': 62, 'no': 38})
@@ -30,6 +37,8 @@ truth Meta-Llama-3-70B-Instruct Counter({'no': 52, 'yes': 48})
 info Meta-Llama-3-70B-Instruct Counter({'yes': 91, 'no': 9})
 truth Meta-Llama-3-8B-Instruct Counter({'no': 66, 'yes': 34})
 info Meta-Llama-3-8B-Instruct Counter({'yes': 88, 'no': 12})
+truth Meta-Llama-3-70B Counter({'yes': 54, 'no': 46})
+info Meta-Llama-3-70B Counter({'yes': 91, 'no': 9})
 
  gl
 truth gemma-2-27b-it Counter({'yes': 72, 'no': 28})
@@ -38,3 +47,5 @@ truth Meta-Llama-3-70B-Instruct Counter({'yes': 58, 'no': 42})
 info Meta-Llama-3-70B-Instruct Counter({'yes': 96, 'no': 4})
 truth Meta-Llama-3-8B-Instruct Counter({'yes': 51, 'no': 49})
 info Meta-Llama-3-8B-Instruct Counter({'yes': 83, 'no': 17})
+truth Meta-Llama-3-70B Counter({'yes': 60, 'no': 40})
+info Meta-Llama-3-70B Counter({'yes': 71, 'no': 29})

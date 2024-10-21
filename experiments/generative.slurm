@@ -11,7 +11,7 @@ export PATH=$PATH":/gaueko0/users/bcalvo/"
 export PATH=$PATH":/gaueko0/users/bcalvo/.local/bin/"
 export PATH=/usr/local/cuda-12.1/bin:$PATH
 
-source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/env/bin/activate
+source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/new_env/bin/activate
 
 #sh experiments/run/experiment_gen.sh ai-forever mGPT 
 #sh experiments/run/experiment_gen.sh facebook xglm-7.5B # no funciona bien

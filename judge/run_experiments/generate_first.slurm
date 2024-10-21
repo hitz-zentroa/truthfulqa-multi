@@ -22,35 +22,35 @@ source new_env/bin/activate
 #                                         --instruct \
 #                                         --label truth
 
-# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
-#                                         --judge_model allenai/truthfulqa-truth-judge-llama2-7B \
-#                                         --langs en es ca eu gl \
-#                                         --label truth
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-70B \
+                                        --judge_model allenai/truthfulqa-truth-judge-llama2-7B \
+                                        --langs en es ca eu gl \
+                                        --label truth
 
 # python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
 #                                        --judge_model judge/judge_models/llama-3_truth_judge_new \
 #                                        --langs en es ca eu gl \
 #                                        --label truth
 
-# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-70B \
 #                                         --judge_model judge/judge_models/llama-3-info-new \
 #                                         --langs en es ca eu gl \
 #                                         --label info
 
-# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
-#                                         --judge_model allenai/truthfulqa-info-judge-llama2-7B \
-#                                         --langs en es ca eu gl \
-#                                         --label info
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-70B \
+                                        --judge_model allenai/truthfulqa-info-judge-llama2-7B \
+                                        --langs en es ca eu gl \
+                                        --label info
 
 # python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
 #                                         --judge_model judge/judge_models/llama3.1.2_truth_judge \
 #                                         --langs en es ca eu gl \
 #                                         --label truth
 
-# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
-#                                         --judge_model judge/judge_models/llama3.1.2_info_judge \
-#                                         --langs en es ca eu gl \
-#                                         --label info
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-70B \
+                                        --judge_model judge/judge_models/llama3.1.2_info_judge \
+                                        --langs en es ca eu gl \
+                                        --label info
 
 # python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
 #                                         --judge_model judge/judge_models/llama3.1_multi_truth_judge \
@@ -86,20 +86,15 @@ source new_env/bin/activate
 #                                         --instruct
 
 
-python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-70B  \
                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
                                         --langs en es ca eu gl \
                                         --label truth \
                                         --instruct
 
-# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
-#                                         --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
-#                                         --langs en es ca eu gl \
-#                                         --label truth \
-#                                         --instruct
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-70B  \
+                                        --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
+                                        --langs en es ca eu gl \
+                                        --label truth \
+                                        --instruct
 
-# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it  \
-#                                         --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
-#                                         --langs en es ca eu gl \
-#                                         --label truth \
-#                                         --instruct
