@@ -108,12 +108,12 @@ Average per language		 	 0.68	0.61	0.6	0.48	0.64
 Errors in the labels: 0
 
  {'name': 'multi-inst-gemma9b-truth', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label': 'truth'}
-model_name 	 judge_name 		 en	es	ca	eu	gl
+model_name 	 judge_name 		            en	es	ca	eu	gl
 Meta-Llama 	 multi-inst-gemma9b-truth 	 0.81	0.66	0.72	0.55	0.68
-Meta-Llama 	 multi-inst-gemma9b-truth 	 0.72	0.67	0.67	0.6	0.83
-gemma-2-27 	 multi-inst-gemma9b-truth 	 0.54	0.6	0.68	0.52	0.62
+Meta-Llama 	 multi-inst-gemma9b-truth 	 0.72	0.67	0.67	0.60	0.83
+gemma-2-27 	 multi-inst-gemma9b-truth 	 0.54	0.60	0.68	0.52	0.62
 Meta-Llama 	 multi-inst-gemma9b-truth 	 0.87	0.88	0.94	0.72	0.74
-Average per language		 	 0.74	0.7	0.75	0.6	0.72
+Average per language		 	         0.74	0.70	0.75	0.60	0.72
 Errors in the labels: 0
 
 Average per model:

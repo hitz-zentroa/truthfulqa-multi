@@ -15,3 +15,5 @@ results/*.csv
 judge/judge_output/
 results/results_to_csv.py
 new_env
+analysis/by_category
+analysis/comparar_judge_MC.py
