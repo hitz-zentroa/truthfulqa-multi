@@ -7,12 +7,12 @@
 #SBATCH --output=logs/mc2_%j.out
 #SBATCH --error=logs/mc2_%j.err
 
-export PATH=$PATH":/gaueko0/users/bcalvo/"
-export PATH=$PATH":/gaueko0/users/bcalvo/.local/bin/"
-export PATH=/usr/local/cuda-12.1/bin:$PATH
+source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/new_env/bin/activate
 
-source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/env/bin/activate
+sh experiments/run/experiment_mc2.sh mistralai Mistral-7B-Instruct-v0.3
+#sh experiments/run/experiment_mc2.sh meta-llama Meta-Llama-3-8B-Instruct
+#sh experiments/run/experiment_mc2.sh google gemma-2-9b-it
 
-sh experiments/run/experiment_mc2.sh meta-llama Meta-Llama-3-8B-Instruct
-sh experiments/run/experiment_mc2.sh mistralai Mistral-7B-Instruct-v0.2
-sh experiments/run/experiment_mc2_eager.sh google gemma-2-9b-it
+sh experiments/run/experiment_mc2_no_instruct.sh mistralai Mistral-7B-v0.3
+sh experiments/run/experiment_mc2_no_instruct.sh meta-llama Meta-Llama-3-8B
+sh experiments/run/experiment_mc2_eager_no_instruct.sh google gemma-2-9b

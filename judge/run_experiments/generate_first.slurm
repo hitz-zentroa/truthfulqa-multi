@@ -37,11 +37,6 @@ source new_env/bin/activate
 #                                         --langs en es ca eu gl \
 #                                         --label info
 
-python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mistral-7B-v0.3 Meta-Llama-3-8B \
-                                        --judge_model allenai/truthfulqa-info-judge-llama2-7B \
-                                        --langs en es ca eu gl \
-                                        --label info
-
 # python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it \
 #                                         --judge_model judge/judge_models/llama3.1.2_truth_judge \
 #                                         --langs en es ca eu gl \
@@ -86,13 +81,6 @@ python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mis
 #                                         --instruct
 
 
-# python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b gemma-2-9b-it  \
-#                                         --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
-#                                         --langs en es ca eu gl \
-#                                         --label truth \
-#                                         --instruct
-
-
 # # MODELO JUDGE FINAL
 
 # python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mistral-7B-v0.3 Meta-Llama-3-8B Meta-Llama-3-70B \
@@ -106,3 +94,33 @@ python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mis
 #                                         --langs en es ca eu gl \
 #                                         --label truth \
 #                                         --instruct
+
+
+# MODELO JUDGE ADICIONAL
+
+# python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mistral-7B-v0.3 Meta-Llama-3-8B Meta-Llama-3-70B \
+#                                         --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth \
+#                                         --instruct
+
+# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Meta-Llama-3-70B-Instruct gemma-2-27b-it gemma-2-9b-it Mistral-7B-Instruct-v0.3  \
+#                                         --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label truth \
+#                                         --instruct
+
+
+python judge/run_experiments/llm_evaluate.py --models Mistral-7B-Instruct-v0.3  \
+                                        --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
+                                        --langs en es ca eu gl \
+                                        --label truth \
+                                        --instruct
+
+
+# MODELO INFO
+
+# python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mistral-7B-v0.3 Meta-Llama-3-8B \
+#                                         --judge_model allenai/truthfulqa-info-judge-llama2-7B \
+#                                         --langs en es ca eu gl \
+#                                         --label info
