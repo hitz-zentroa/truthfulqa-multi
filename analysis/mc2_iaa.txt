@@ -1,0 +1,5 @@
+model_name 	                 en 	es  	ca  	eu	    gl
+Meta-Llama-3-8B-Instruct 	 0.4	0.51	0.27	0.2	    0.24
+Meta-Llama-3-70B-Instruct 	 0.46	0.51	0.38	0.36	0.44
+gemma-2-27b-it 	             0.3	0.32	0.32	0.36	0.37
+Meta-Llama-3-70B 	         0.35	0.29	0.24	0.36	0.12
