@@ -95,6 +95,12 @@ source new_env/bin/activate
 #                                         --label truth \
 #                                         --instruct
 
+python judge/run_experiments/llm_evaluate.py --models Llama-3.1-70B Llama-3.1-70B-Instruct \
+                                        --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+                                        --langs en es ca eu gl \
+                                        --label truth \
+                                        --instruct
+
 
 # MODELO JUDGE ADICIONAL
 
@@ -109,13 +115,6 @@ source new_env/bin/activate
 #                                         --langs en es ca eu gl \
 #                                         --label truth \
 #                                         --instruct
-
-
-python judge/run_experiments/llm_evaluate.py --models Mistral-7B-Instruct-v0.3  \
-                                        --judge_model judge/judge_models/multi_llama3.1_instruct_truth_judge \
-                                        --langs en es ca eu gl \
-                                        --label truth \
-                                        --instruct
 
 
 # MODELO INFO

@@ -11,7 +11,8 @@ import os
 def find_owner(model):
     if model == 'mGPT':
         return 'ai-forever'
-    elif model in ['Llama-2-7b-hf', 'Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-8B', 'Meta-Llama-3-70B-Instruct', 'Meta-Llama-3-70B']:
+    elif model in ['Llama-2-7b-hf', 'Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-8B', 'Meta-Llama-3-70B-Instruct', 'Meta-Llama-3-70B', 
+                   'Llama-3.1-8B', 'Llama-3.1-8B-Instruct', 'Llama-3.1-70B', 'Llama-3.1-70B-Instruct']:
         return 'meta-llama'
     elif model in ['Mistral-7B-Instruct-v0.2', 'Mistral-7B-v0.1', 'Mistral-7B-Instruct-v0.3', 'Mistral-7B-v0.3']:
         return 'mistralai'

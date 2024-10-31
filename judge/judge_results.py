@@ -7,8 +7,9 @@ def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it', 
               'Meta-Llama-3-70B', 'gemma-2-27b', 'Meta-Llama-3-8B',
-              'gemma-2-9b', 'gemma-2-9b-it', 'Mistral-7B-Instruct-v0.3', 'Mistral-7B-v0.3']
-    judge_models = [{'name':'multi-inst-llama3.1', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
+              'gemma-2-9b', 'gemma-2-9b-it', 'Mistral-7B-Instruct-v0.3', 'Mistral-7B-v0.3', 
+              'Llama-3.1-8B', 'Llama-3.1-8B-Instruct', 'Llama-3.1-70B', 'Llama-3.1-70B-Instruct']
+    judge_models = [#{'name':'multi-inst-llama3.1', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
                     #{'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
                     {'name':'multi-inst-gemma9b', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label':'truth'}]
 
