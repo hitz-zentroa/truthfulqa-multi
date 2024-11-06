@@ -6,7 +6,7 @@ import os
 from sklearn.metrics import cohen_kappa_score
 import sys
 from pathlib import Path
-path_root = Path(__file__).parents[1]
+path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
 from utils.utils import find_owner
 

@@ -95,9 +95,9 @@ source new_env/bin/activate
 #                                         --label truth \
 #                                         --instruct
 
-python judge/run_experiments/llm_evaluate.py --models Llama-3.1-70B Llama-3.1-70B-Instruct \
+python judge/run_experiments/llm_evaluate.py --models Llama-3.1-70B-Instruct \
                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
-                                        --langs en es ca eu gl \
+                                        --langs gl \
                                         --label truth \
                                         --instruct
 
