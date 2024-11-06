@@ -17,3 +17,6 @@ results/results_to_csv.py
 new_env
 analysis/by_category
 analysis/comparar_judge_MC.py
+utils/config.yaml
+__pycache__/
+data/

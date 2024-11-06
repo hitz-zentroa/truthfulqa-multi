@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 path_root = Path(__file__).parents[1]
 sys.path.append(str(path_root))
-from utils import find_owner
+from utils.utils import find_owner
 
 def latest_file_find(model, type_model, language, results, file='samples', type='jsonl'):
     list_of_files = glob.glob(r'results/'+results+'/'+language+'/'+type_model+'__'+model+'/'+file+'_*.'+type)
