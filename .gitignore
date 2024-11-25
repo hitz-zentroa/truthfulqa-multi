@@ -27,3 +27,7 @@ analysis/Galician_validation.json
 analysis/by_category.csv
 analysis/by_type.csv
 iaa_results_all.csv
+judge/iaa_judge.txt
+judge/judge_results-MT.py
+judge/results-MT.csv
+results-MT/
