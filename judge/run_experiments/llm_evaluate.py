@@ -13,8 +13,9 @@ path_root = Path(__file__).parents[2]
 sys.path.append(str(path_root))
 from utils.utils import find_owner
     
-def latest_file_find(model, type_model, language):
-    list_of_files = glob.glob(r'results/gen/'+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
+def latest_file_find(model, type_model, language, input_path):
+    print('/'+input_path+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
+    list_of_files = glob.glob(r''+input_path+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
     latest_files = sorted(list_of_files, key=os.path.getctime, reverse=True)
     return latest_files[0]
 
@@ -23,7 +24,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--models', nargs='+', default=['mGPT'])
     #parser.add_argument('--metrics', nargs='+', default=['bleu'])
-    #parser.add_argument('--input_path', type=str, default='../lm-evaluation-harness/output/')
+    parser.add_argument('--input_path', type=str, default='results/gen/')
     parser.add_argument('--output_path', type=str, default='judge/judge_output/')
     #parser.add_argument('--device', type=int, default=-1)
     #parser.add_argument('--cache_dir', type=str)
@@ -68,7 +69,7 @@ def main():
 
     for evaluated_model in args.models:
         for lang in args.langs:
-            file = latest_file_find(evaluated_model, find_owner(evaluated_model), lang)
+            file = latest_file_find(evaluated_model, find_owner(evaluated_model), lang, args.input_path)
 
             with open(file) as f:
                 data=[]
@@ -112,7 +113,7 @@ def main():
             model_name = args.judge_model.split('/')[-1]
             with open(args.output_path+evaluated_model+'__'+lang+'__'+model_name+'__results.jsonl', 'w') as o:
                 print('Saving '+args.output_path+evaluated_model+'__'+lang+'__'+model_name+'__results.jsonl', flush=True)
-                json.dump(data, o, indent=5)
+                json.dump(data, o, indent=4)
 
             count = []
             for line in data:

@@ -2,7 +2,7 @@
 AUTHOR=$1
 MODEL=$2
 
-for lang in gl
+for lang in en ca es eu gl
     do
     lm_eval --model hf \
         --model_args pretrained=$AUTHOR/$MODEL,parallelize=True,attn_implementation=eager \

@@ -6,7 +6,7 @@ import os
 from sklearn.metrics import cohen_kappa_score
 import sys
 from pathlib import Path
-path_root = Path(__file__).parents[2]
+path_root = Path(__file__).parents[1]
 sys.path.append(str(path_root))
 from utils.utils import find_owner
 
@@ -19,7 +19,7 @@ def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it', 'Meta-Llama-3-70B']
 
-    print('model_name', '\t', '\t'.join(langs))
+    print('model_name', ',', ','.join(langs))
 
     for model in models:
         out_raw = []
@@ -63,7 +63,7 @@ def main():
 
             out_raw.append(str(round(cohen_kappa_score(mc2_iaa_labels, manual_labels), 2)))
 
-        print(model, '\t', '\t'.join(out_raw))
+        print(model, ',', ','.join(out_raw))
 
 
 

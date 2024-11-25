@@ -7,10 +7,6 @@
 #SBATCH --output=logs/judge_%j.out
 #SBATCH --error=logs/judge_%j.err
 
-export PATH=$PATH":/gaueko0/users/bcalvo/"
-export PATH=$PATH":/gaueko0/users/bcalvo/.local/bin/"
-export PATH=/usr/local/cuda-12.1/bin:$PATH
-
 source new_env/bin/activate
 
 #HF_HOME='/ixadata/users/bcalvo/cache'
@@ -95,12 +91,20 @@ source new_env/bin/activate
 #                                         --label truth \
 #                                         --instruct
 
-python judge/run_experiments/llm_evaluate.py --models Llama-3.1-70B-Instruct \
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Llama-3.1-8B-Instruct gemma-2-9b-it Mistral-7B-Instruct-v0.3 \
                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
-                                        --langs gl \
+                                        --langs es ca eu gl \
                                         --label truth \
+                                        --input_path results/gen/ \
                                         --instruct
 
+python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct Llama-3.1-8B-Instruct gemma-2-9b-it Mistral-7B-Instruct-v0.3 \
+                                        --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+                                        --langs es ca eu gl \
+                                        --label truth \
+                                        --input_path results-MT/gen/ \
+                                        --output_path judge/judge_output/MT/ \
+                                        --instruct
 
 # MODELO JUDGE ADICIONAL
 
