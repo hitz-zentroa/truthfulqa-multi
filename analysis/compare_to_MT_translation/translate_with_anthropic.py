@@ -29,24 +29,33 @@ client = anthropic.Anthropic(
 
 en_data = load_dataset('HiTZ/truthfulqa-multi', 'en')
 
-langs = ['Spanish', 'Catalan', 'Basque', 'Galician']
+langs = ['Galician'] # 'Spanish', 'Catalan', 'Basque', 
 
 @retry(wait=wait_random_exponential(min=1, max=120), stop=stop_after_attempt(12))
 def completion_with_backoff(**kwargs):
     return client.messages.create(**kwargs)
 
+partition = sys.argv[1]
 
 for LANG in langs:
     errors = 0
     to_save = []
-    with open('analysis/compare_to_MT_translation/'+LANG+'.jsonl') as file:
-        for line in file:
-            to_save.append(json.loads(line))
+    try:
+        with open('analysis/compare_to_MT_translation/'+LANG+'_'+partition+'.jsonl') as file:
+            for line in file:
+                to_save.append(json.loads(line))
+    except FileNotFoundError:
+        pass
+
+    if to_save:
+        initial_id = to_save[-1]['id']
+    else:
+        initial_id = 0
         
-    with open('analysis/compare_to_MT_translation/'+LANG+'.jsonl', 'a') as o:
+    with open('analysis/compare_to_MT_translation/data/'+LANG+'_'+partition+'.jsonl', 'a') as o:
         #to_save = []
-        for line in en_data['validation']:
-            if line['id'] <= to_save[-1]['id']:
+        for line in en_data[partition]:
+            if line['id'] <= initial_id:
                 continue
             print(line['id'], flush=True)
             input_json = {}
@@ -58,7 +67,7 @@ for LANG in langs:
 
             JSON_OBJECT = json.dumps(input_json)
 
-            prompt = f"You are tasked with translating specific fields of a JSON object from English to {LANG}. Here is the JSON object you will be working with:\n\n<json_object>\n{JSON_OBJECT}\n</json_object>\n\nYour task is to translate the following fields into {LANG}:\n- question\n- best_answer\n- correct_answers\n- incorrect_answers\n\nImportant guidelines:\n1. Maintain the original structure of the JSON object.\n2. Only translate the content of the specified fields.\n3. Do not translate proper nouns.\n4. If a field contains an array, translate each element of the array.\n5. Preserve any formatting or special characters present in the original text.\n\nIf you encounter any content that should not be translated or you're unsure about, leave it in its original form.\n\nProvide the entire translated JSON object as your output. Do not include any comments or explanations outside of the JSON object."
+            prompt = f"You are tasked with translating specific fields of a JSON object from English to {LANG}. Here is the JSON object you will be working with:\n\n<json_object>\n{JSON_OBJECT}\n</json_object>\n\nYour task is to translate the following fields into {LANG}:\n- question\n- best_answer\n- correct_answers\n- incorrect_answers\n\nImportant guidelines:\n1. Maintain the original structure of the JSON object.\n2. Only translate the content of the specified fields.\n3. Do not translate proper nouns.\n4. If a field contains an array, translate each element of the array. Make sure to translate every sentence and do not add any new sentence.\n5. Check that the resulting arrays have the same number of elements as the original arrays.\n6. Preserve any formatting or special characters present in the original text.\n\nIf you encounter any content that should not be translated or you're unsure about, leave it in its original form.\n\nProvide the entire translated JSON object as your output. Do not include any comments or explanations outside of the JSON object."
 
             message = completion_with_backoff(
                 model="claude-3-5-sonnet-20241022",
@@ -90,9 +99,9 @@ for LANG in langs:
             o.write(json.dumps(out_json))
             o.write('\n')
             o.flush()
-            time.sleep(1)
+            #time.sleep(1)
             #break
 
-    with open('analysis/compare_to_MT_translation/'+LANG+'.json', 'w') as p:
+    with open('analysis/compare_to_MT_translation/data/'+LANG+'_'+partition+'.json', 'w') as p:
         json.dump(to_save, p, indent=4)
     
