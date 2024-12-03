@@ -9,10 +9,13 @@
 
 source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/new_env/bin/activate
 
-sh experiments/run/experiment_mc2.sh mistralai Mistral-7B-Instruct-v0.3
-sh experiments/run/experiment_mc2.sh meta-llama Meta-Llama-3-8B-Instruct
-sh experiments/run/experiment_mc2.sh google gemma-2-9b-it
+# sh experiments/run/experiment_mc2.sh mistralai Mistral-7B-Instruct-v0.3
+# sh experiments/run/experiment_mc2.sh meta-llama Meta-Llama-3-8B-Instruct
+# sh experiments/run/experiment_mc2.sh google gemma-2-9b-it
 
-sh experiments/run/experiment_mc2_no_instruct.sh mistralai Mistral-7B-v0.3
-sh experiments/run/experiment_mc2_no_instruct.sh meta-llama Meta-Llama-3-8B
-sh experiments/run/experiment_mc2_eager_no_instruct.sh google gemma-2-9b
+# sh experiments/run/experiment_mc2_no_instruct.sh mistralai Mistral-7B-v0.3
+# sh experiments/run/experiment_mc2_no_instruct.sh meta-llama Meta-Llama-3-8B
+# sh experiments/run/experiment_mc2_eager_no_instruct.sh google gemma-2-9b
+
+sh experiments/run/experiment_mc2_no_instruct.sh meta-llama Llama-3.1-8B
+sh experiments/run/experiment_mc2.sh meta-llama Llama-3.1-8B-Instruct

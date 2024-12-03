@@ -9,6 +9,7 @@ def main():
               'Meta-Llama-3-70B', 'gemma-2-27b', 'Meta-Llama-3-8B',
               'gemma-2-9b', 'gemma-2-9b-it', 'Mistral-7B-Instruct-v0.3', 'Mistral-7B-v0.3', 
               'Llama-3.1-8B', 'Llama-3.1-8B-Instruct', 'Llama-3.1-70B', 'Llama-3.1-70B-Instruct']
+    models.sort(reverse=True)
     judge_models = [#{'name':'multi-inst-llama3.1', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
                     #{'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
                     {'name':'multi-inst-gemma9b', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label':'truth'}]
@@ -57,13 +58,13 @@ def main():
                             errors += 1
                             judge_labels.append('nsnc')
 
-                    out_raw.append(str(round(Counter(judge_labels)['yes']/len(judge_labels), 2)))
+                    out_raw.append(str((Counter(judge_labels)['yes']/len(judge_labels)*100)))
                     avg_lang[lang].append(round(Counter(judge_labels)['yes']/len(judge_labels), 2))
                 avg_models[model].append(round(Counter(judge_labels)['yes']/len(judge_labels), 2))
 
 
                 print(model, '\t', judge['name'], '\t', '\t'.join(out_raw))
-                w.writerow([model, judge['name']]+ out_raw)
+                w.writerow([model]+out_raw)
             #print('Average for language:')
             #for lang in langs:
             #    print(lang, str(round(sum(avg_lang[lang])/len(avg_lang[lang]), 2)))

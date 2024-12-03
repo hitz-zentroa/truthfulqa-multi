@@ -14,7 +14,7 @@ sys.path.append(str(path_root))
 from utils.utils import find_owner
     
 def latest_file_find(model, type_model, language, input_path):
-    print('/'+input_path+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
+    print('/'+input_path+language+'/'+type_model+'__'+model+'/samples_*.jsonl', flush=True)
     list_of_files = glob.glob(r''+input_path+language+'/'+type_model+'__'+model+'/samples_*.jsonl')
     latest_files = sorted(list_of_files, key=os.path.getctime, reverse=True)
     return latest_files[0]

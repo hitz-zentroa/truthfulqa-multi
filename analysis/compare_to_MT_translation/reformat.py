@@ -3,7 +3,7 @@ import sys
 
 langs = {'es':'Spanish', 'ca':'Catalan', 'eu':'Basque', 'gl':'Galician'}
 
-partition = sys.argv[1]
+partition = sys.argv[1] # train is not translated
 
 for lang, file in langs.items():
 	with open('analysis/compare_to_MT_translation/data/'+file+'_'+partition+'.json') as f:
@@ -23,6 +23,10 @@ for lang, file in langs.items():
 		assert len(line['mc2_targets']['choices']) == len(line['mc2_targets']['labels'])
 
 		line['lang'] = lang
+		line["type"] = ""
+		line["category"] = ""
+		line["source"] = ""
+		line["annotation"] = ""
 
 	with open('data/MT/'+lang+'/'+partition+'.json', 'w') as o:
 		json.dump(data, o, indent=4)

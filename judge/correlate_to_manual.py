@@ -5,20 +5,14 @@ from sklearn.metrics import cohen_kappa_score
 def main():
     langs = ['en', 'es', 'ca', 'eu', 'gl']
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it', 'Meta-Llama-3-70B']
-    judge_models = [{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'label':'truth'},
-                    # {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
-                    # {'name':'new-llama3-truth', 'files_name': 'llama3-1_7B_truth_judge_final', 'label':'truth'}, 
-                    # {'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
-                    # {'name':'llama3.1-truth', 'files_name': 'llama3.1.2_truth_judge', 'label':'truth'},
-                    # #{'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'},
-                     {'name':'gemma9b\t', 'files_name': 'gemma9b_truth_judge', 'label':'truth'},
-                    # {'name':'llama3.1-instruct', 'files_name': '2-llama3.1_instruct_truth_judge', 'label':'truth'},
-                    #{'name':'multi-llama3.1-inst', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
-                    # {'name':'multi-ll3.1-truth', 'files_name': 'llama3.1_multi_truth_judge', 'label':'truth'},
-                    # {'name':'multillama3-truth', 'files_name': 'llama-3-multi_truth_judge', 'label':'truth'},
-                     {'name':'multi-gemma9b-truth', 'files_name': 'gemma9b_multi_truth_judge', 'label':'truth'},
-                     {'name':'inst-gemma9b-truth', 'files_name': 'gemma9b_instruct_truth_judge', 'label':'truth'},
-                    {'name':'multi-inst-gemma9b-truth', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label':'truth'}]
+    judge_models = [#{'name':'hf-llama2-truth', 'files_name': 'truthfulqa-truth-judge-llama2-7B', 'label':'truth'},
+                    {'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},
+                    {'name':'new-llama3-info', 'files_name': 'llama-3-info-new', 'label':'info'},
+                    {'name':'llama3.1-info', 'files_name': 'llama3.1.2_info_judge', 'label':'info'}]#,
+                    #  {'name':'gemma9b\t', 'files_name': 'gemma9b_truth_judge', 'label':'truth'},
+                    #  {'name':'multi-gemma9b-truth', 'files_name': 'gemma9b_multi_truth_judge', 'label':'truth'},
+                    #  {'name':'inst-gemma9b-truth', 'files_name': 'gemma9b_instruct_truth_judge', 'label':'truth'},
+                    # {'name':'multi-inst-gemma9b-truth', 'files_name': 'multi_gemma9b_instruct_truth_judge', 'label':'truth'}]
 
     # for each language
     avg_models = {}
@@ -27,7 +21,7 @@ def main():
 
     print('judge_name', '&', '&'.join(langs), '\\\\', '\\hline')
     for judge in judge_models:
-        #print('\n', judge)
+        print('\n', judge)
         avg_lang = {'en':[], 'es':[], 'ca':[], 'eu': [], 'gl': []}
         
         errors = 0
@@ -93,7 +87,7 @@ def main():
                     avg_lang[lang].append(cohen_kappa_score(judge_labels, manual_labels))
                     avg_models[judge['name']].append(cohen_kappa_score(judge_labels, manual_labels))
 
-            #print(model, ',', judge['name'], ',', ','.join(out_raw))
+            print(model, '\t', judge['name'], '\t', '\t'.join(out_raw))
         print_avg=[]
         for lang in langs:
             try: 
@@ -101,7 +95,7 @@ def main():
             except ZeroDivisionError:
                 print_avg.append('-')
                 break
-        print(judge['name'], '&', '&'.join(print_avg), '\\\\', '\\hline')
+        #print(judge['name'], '&', '&'.join(print_avg), '\\\\', '\\hline')
         #print('Errors in the labels:', str(errors))
 
     #print('\nAverage per model:')
