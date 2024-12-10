@@ -89,9 +89,37 @@ source new_env/bin/activate
 #                                         --label truth \
 #                                         --instruct
 
+# EVALUCION INFORMATIVENESS
+
+# python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-8B-Instruct'  'Meta-Llama-3-8B' 'gemma-2-27b-it' 'Meta-Llama-3-70B-Instruct' 'Meta-Llama-3-70B' \
+#                                         --judge_model judge/judge_models/multi_gemma9b_instruct_info_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label info \
+#                                         --input_path results/gen/ \
+#                                         --output_path judge/judge_output/ \
+#                                         --instruct
+
+# python judge/run_experiments/llm_evaluate.py --models 'gemma-2-27b' 'gemma-2-9b' 'Llama-3.1-70B' 'Llama-3.1-8B' Mistral-7B-v0.3 \
+#                                         --judge_model judge/judge_models/multi_gemma9b_instruct_info_judge \
+#                                         --langs en es ca eu gl \
+#                                         --label info \
+#                                         --input_path results/gen/ \
+#                                         --output_path judge/judge_output/ \
+#                                         --instruct
+
 # EVALUACION DEL DATASET CON MT
 
-python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mistral-7B-v0.3 Meta-Llama-3-8B Meta-Llama-3-70B Llama-3.1-8B Llama-3.1-70B Llama-3.1-70B-Instruct  \
+# python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-8B-Instruct'  'Meta-Llama-3-8B' 'gemma-2-9b' 'gemma-2-9b-it' 'Mistral-7B-Instruct-v0.3' 'Mistral-7B-v0.3'   'Llama-3.1-8B' 'Llama-3.1-8B-Instruct' \
+#                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+#                                         --langs es ca eu gl \
+#                                         --label truth \
+#                                         --input_path results-MT/gen/ \
+#                                         --output_path judge/judge_output/MT/ \
+#                                         --instruct
+
+
+
+python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-70B-Instruct'  'Meta-Llama-3-70B' 'gemma-2-27b' 'gemma-2-27b-it' 'Llama-3.1-70B' \
                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
                                         --langs es ca eu gl \
                                         --label truth \
@@ -99,14 +127,6 @@ python judge/run_experiments/llm_evaluate.py --models gemma-2-27b gemma-2-9b Mis
                                         --output_path judge/judge_output/MT/ \
                                         --instruct
 
-
-# python judge/run_experiments/llm_evaluate.py --models Meta-Llama-3-8B-Instruct gemma-2-27b-it gemma-2-9b-it Mistral-7B-v0.3-Instruct Meta-Llama-3-70B-Instruct Llama-3.1-8B-Instruct Llama-3.1-70B-Instruct  \
-#                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
-#                                         --langs es ca eu gl \
-#                                         --label truth \
-#                                         --instruct \
-#                                         --input_path results-MT/gen/ \
-#                                         --output_path judge/judge_output/MT/
 
 # MODELO JUDGE ADICIONAL
 

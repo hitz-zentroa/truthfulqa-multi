@@ -2,7 +2,7 @@
 AUTHOR=$1
 MODEL=$2
 
-for lang in ca es eu gl
+for lang in es ca eu gl
     do
     lm_eval --model hf \
         --model_args pretrained=$AUTHOR/$MODEL,parallelize=True,attn_implementation="flash_attention_2" \

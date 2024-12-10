@@ -31,3 +31,10 @@ judge/iaa_judge.txt
 judge/judge_results-MT.py
 judge/results-MT.csv
 results-MT/
+analysis/compare_to_MT_translation/check_eu_wierdcases.py
+analysis/compare_to_MT_translation/eu_differences.csv
+analysis/explore_difficult_instances/
+analysis/explore_informativeness/
+judge/judge_results_info.py
+results/mc2_results_to_csv.py
+utils/calculo_mc2.py
