@@ -6,6 +6,7 @@
 #SBATCH --time=24:00:00
 #SBATCH --output=logs/judge_%j.out
 #SBATCH --error=logs/judge_%j.err
+#SBATCH --parsable --dependency=afterany:21442
 
 source new_env/bin/activate
 
@@ -107,24 +108,45 @@ source new_env/bin/activate
 #                                         --output_path judge/judge_output/ \
 #                                         --instruct
 
-# EVALUACION DEL DATASET CON MT
+# EVALUACION DEL DATASET CON MT Claude
 
 # python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-8B-Instruct'  'Meta-Llama-3-8B' 'gemma-2-9b' 'gemma-2-9b-it' 'Mistral-7B-Instruct-v0.3' 'Mistral-7B-v0.3'   'Llama-3.1-8B' 'Llama-3.1-8B-Instruct' \
 #                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
 #                                         --langs es ca eu gl \
 #                                         --label truth \
-#                                         --input_path results-MT/gen/ \
-#                                         --output_path judge/judge_output/MT/ \
+#                                         --input_path results-MT-claude/gen/ \
+#                                         --output_path judge/judge_output/MT-claude/ \
 #                                         --instruct
 
 
 
-python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-70B-Instruct'  'Meta-Llama-3-70B' 'gemma-2-27b' 'gemma-2-27b-it' 'Llama-3.1-70B' \
+# python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-70B-Instruct'  'Meta-Llama-3-70B' 'gemma-2-27b' 'gemma-2-27b-it' 'Llama-3.1-70B' 'Llama-3.1-70B-Instruct' \
+#                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+#                                         --langs es ca eu gl \
+#                                         --label truth \
+#                                         --input_path results-MT-claude/gen/ \
+#                                         --output_path judge/judge_output/MT-claude/ \
+#                                         --instruct
+
+
+# EVALUACION DEL DATASET CON MT de NLLB
+
+python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-8B-Instruct'  'gemma-2-9b-it' 'Mistral-7B-Instruct-v0.3' 'Llama-3.1-8B-Instruct' \
                                         --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
                                         --langs es ca eu gl \
                                         --label truth \
                                         --input_path results-MT/gen/ \
-                                        --output_path judge/judge_output/MT/ \
+                                        --output_path judge/judge_output/MT-NLLB/ \
+                                        --instruct
+
+
+
+python judge/run_experiments/llm_evaluate.py --models 'Meta-Llama-3-70B-Instruct' 'gemma-2-27b-it' 'Llama-3.1-70B-Instruct' \
+                                        --judge_model judge/judge_models/multi_gemma9b_instruct_truth_judge \
+                                        --langs es ca eu gl \
+                                        --label truth \
+                                        --input_path results-MT/gen/ \
+                                        --output_path judge/judge_output/MT-NLLB/ \
                                         --instruct
 
 
