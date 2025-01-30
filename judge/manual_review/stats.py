@@ -32,8 +32,8 @@ def main():
             
             
             for model in list(stats_by_model.keys()):
-                print('truth', model,  Counter(stats_by_model[model]['truth']))
-                print('info', model, Counter(stats_by_model[model]['info']))
+                print('truth', model,  Counter(stats_by_model[model]['truth'])['yes'])
+                print('info', model, Counter(stats_by_model[model]['info'])['yes'])
     
 
 if __name__ == '__main__':

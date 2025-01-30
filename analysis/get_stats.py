@@ -6,7 +6,7 @@ from sklearn.metrics import cohen_kappa_score
 import csv
 import sys
 from pathlib import Path
-path_root = Path(__file__).parents[2]
+path_root = Path(__file__).parents[1]
 sys.path.append(str(path_root))
 from utils.utils import find_owner
 
@@ -26,7 +26,7 @@ def main():
 
     # for each language
     for judge in judge_models:
-        print('\n'+judge['name']+'\n')
+        #print('\n'+judge['name']+'\n')
         # avg_models = {}
         # for m in models:
         #     avg_models[m] = []
@@ -43,7 +43,7 @@ def main():
                 all_types={}
                 all_categories={}
 
-                print('\n', model, lang)
+                #print('\n', model, lang)
 
                 # LOAD THE JUDGE RESULTS
                 try:
@@ -70,7 +70,7 @@ def main():
                     else:
                         judge_labels.append('other') # this should never happen
                         errors+=1
-                print(Counter(judge_labels)['yes']/817)
+                #print(Counter(judge_labels)['yes']/817)
 
                 # ANALYSE DIFFERENT RESULTS RELATIVE TO CATEGORY AND TYPE
                 out = [['Model', model],['Language', lang]]
@@ -112,8 +112,6 @@ def main():
                     out_csv_type.append([model, lang]+[float(round(Counter(item)['yes']/(len(item)), 2)) for item in all_types.values()])
                 else:
                     out_csv_type.append([model, lang]+[float(round(Counter(item)['yes']/(len(item)), 2)) for item in all_types.values()])
-
-
         
 
         with open('analysis/by_category.csv', 'w') as o:

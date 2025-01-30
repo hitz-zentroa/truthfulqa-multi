@@ -7,10 +7,6 @@
 #SBATCH --output=logs/gen_%j.out
 #SBATCH --error=logs/gen_%j.err
 
-export PATH=$PATH":/gaueko0/users/bcalvo/"
-export PATH=$PATH":/gaueko0/users/bcalvo/.local/bin/"
-export PATH=/usr/local/cuda-12.1/bin:$PATH
-
 source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/new_env/bin/activate
 
 # MODELOS QUE NO USAMOS
@@ -28,5 +24,8 @@ source /gaueko0/users/bcalvo/GSCRATCH/truthfulqa-multi/new_env/bin/activate
 # sh experiments/run/experiment_eager_no_instruct.sh google gemma-2-9b
 # sh experiments/run/experiment_flash_no_instruct.sh mistralai Mistral-7B-v0.3
 
-sh experiments/run/experiment_flash_no_instruct.sh meta-llama Llama-3.1-8B
-sh experiments/run/experiment_flash.sh meta-llama Llama-3.1-8B-Instruct
+#sh experiments/run/experiment_flash_no_instruct.sh meta-llama Llama-3.1-8B
+#sh experiments/run/experiment_flash.sh meta-llama Llama-3.1-8B-Instruct
+
+#sh experiments/run/experiment_flash.sh BSC-LT salamandra-7b-instruct
+#sh experiments/run/experiment.sh projecte-aina FLOR-6.3B-Instructed

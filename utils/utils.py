@@ -13,5 +13,9 @@ def find_owner(model):
         return 'bigscience'
     elif model in ['gemma-2-27b-it', 'gemma-2-9b-it', 'gemma-2-27b', 'gemma-2-9b']:
         return 'google'
+    elif model in ['salamandra-7b-instruct']:
+        return 'BSC-LT'
+    elif model in ['FLOR-6.3B-Instructed']:
+        return 'projecte-aina'
     else:
         raise Exception("Model type not defined.") 

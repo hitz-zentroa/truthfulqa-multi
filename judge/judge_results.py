@@ -8,7 +8,9 @@ def main():
     models = ['Meta-Llama-3-8B-Instruct', 'Meta-Llama-3-70B-Instruct', 'gemma-2-27b-it', 
               'Meta-Llama-3-70B', 'gemma-2-27b', 'Meta-Llama-3-8B',
               'gemma-2-9b', 'gemma-2-9b-it', 'Mistral-7B-Instruct-v0.3', 'Mistral-7B-v0.3', 
-              'Llama-3.1-8B', 'Llama-3.1-8B-Instruct', 'Llama-3.1-70B', 'Llama-3.1-70B-Instruct']
+              'Llama-3.1-8B', 'Llama-3.1-8B-Instruct', 'Llama-3.1-70B', 'Llama-3.1-70B-Instruct', 
+              'salamandra-7b-instruct', 'FLOR-6.3B-Instructed'
+              ]
     models.sort(reverse=True)
     judge_models = [#{'name':'multi-inst-llama3.1', 'files_name': 'multi_llama3.1_instruct_truth_judge', 'label':'truth'},
                     #{'name':'hf-llama2-info', 'files_name': 'truthfulqa-info-judge-llama2-7B', 'label':'info'},

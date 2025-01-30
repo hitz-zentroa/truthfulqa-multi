@@ -29,7 +29,8 @@ analysis/by_type.csv
 iaa_results_all.csv
 judge/iaa_judge.txt
 judge/judge_results-MT.py
-judge/results-MT.csv
+results-MT-claude/
+results-MT-NLLB/
 results-MT/
 analysis/compare_to_MT_translation/check_eu_wierdcases.py
 analysis/compare_to_MT_translation/eu_differences.csv
@@ -38,3 +39,11 @@ analysis/explore_informativeness/
 judge/judge_results_info.py
 results/mc2_results_to_csv.py
 utils/calculo_mc2.py
+judge/results-MT-NLLB.csv
+judge/results-MT-claude.csv
+results/*
+*.sh
+*.txt
+plots/
+*.slurm
+analysis/NLLB_compare_to_MT_translation/
