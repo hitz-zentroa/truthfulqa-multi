@@ -19,7 +19,6 @@ analysis/by_category
 analysis/comparar_judge_MC.py
 utils/config.yaml
 __pycache__/
-data/
 analysis/compare_to_MT_translation/count_tokens.py
 analysis/compare_to_MT_translation/errors.csv
 analysis/compare_to_MT_translation/translate.slurm
