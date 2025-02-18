@@ -46,3 +46,11 @@ results/*
 plots/
 *.slurm
 analysis/NLLB_compare_to_MT_translation/
+analysis/compare_to_MT_translation/check_instances.csv
+analysis/compare_to_MT_translation/check_instances_3wrong.csv
+analysis/compare_to_MT_translation/data/
+analysis/explore_false_positives.py
+analysis/false_positives/
+analysis/positives/
+analysis/new_stats.py
+additional_data

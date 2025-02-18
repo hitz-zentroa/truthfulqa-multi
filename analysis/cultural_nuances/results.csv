@@ -1,0 +1,15 @@
+model,subset,judge_name,en,es,ca,eu,gl
+gemma-2-9b-it,local,multi-inst-gemma9b,78.07,75.05,73.35,67.11,69.79
+gemma-2-9b-it,veritas,multi-inst-gemma9b,91.67,89.58,87.15,69.79,86.46
+gemma-2-27b-it,local,multi-inst-gemma9b,79.77,77.32,73.72,69.19,80.21
+gemma-2-27b-it,veritas,multi-inst-gemma9b,91.67,91.67,85.76,80.21,88.19
+Mistral-7B-Instruct-v0.3,local,multi-inst-gemma9b,66.73,66.92,65.97,59.74,59.03
+Mistral-7B-Instruct-v0.3,veritas,multi-inst-gemma9b,83.33,69.79,74.31,59.03,76.39
+Meta-Llama-3-8B-Instruct,local,multi-inst-gemma9b,60.11,62.57,61.44,43.86,53.82
+Meta-Llama-3-8B-Instruct,veritas,multi-inst-gemma9b,77.43,73.26,72.92,53.82,66.32
+Meta-Llama-3-70B-Instruct,local,multi-inst-gemma9b,71.46,66.54,63.71,50.66,53.47
+Meta-Llama-3-70B-Instruct,veritas,multi-inst-gemma9b,84.03,81.25,79.17,53.47,77.08
+Llama-3.1-8B-Instruct,local,multi-inst-gemma9b,66.35,62.76,59.36,38.94,43.75
+Llama-3.1-8B-Instruct,veritas,multi-inst-gemma9b,79.51,72.57,64.58,43.75,62.5
+Llama-3.1-70B-Instruct,local,multi-inst-gemma9b,73.53,60.87,58.22,49.34,50.69
+Llama-3.1-70B-Instruct,veritas,multi-inst-gemma9b,89.24,76.04,70.83,50.69,71.88
