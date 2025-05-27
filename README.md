@@ -51,6 +51,29 @@ For larger models:
 sbatch experiments/mc2_big.slurm
 ```
 
+### Judging Process
+
+This project includes a comprehensive framework for judging the truthfulness of model-generated answers.
+
+**1. Train Judge Models (Optional):**
+   - If you need to train custom judge models, refer to the scripts and resources in `judge/train_judge/`.
+   - Training data may involve translation, see `judge/translate_training_data/`.
+
+**2. Judge Model Answers:**
+   - Use the following command to have the judge model evaluate the answers generated in the previous steps. This typically calls scripts in `judge/run_experiments/`.
+```bash
+sbatch judge/run_experiments/judge.slurm
+```
+
+**3. Process Judge Results:**
+   - The script `judge/judge_results.py` can be used to process or aggregate the outputs from the judge models.
+
+**4. Evaluate Judges:**
+   - Compare the judge model's evaluations against manual annotations:
+```bash
+python judge/correlate_to_manual.py
+```
+
 ### Analyze Results
 
 To generate statistics on judge performance by category and type:
@@ -90,29 +113,6 @@ Scripts in `analysis/cultural_nuances/` are used to investigate if there are dif
     ```bash
     python analysis/cultural_nuances/test_local_instances.py
     ```
-
-### Judging Process
-
-This project includes a comprehensive framework for judging the truthfulness of model-generated answers.
-
-**1. Train Judge Models (Optional):**
-   - If you need to train custom judge models, refer to the scripts and resources in `judge/train_judge/`.
-   - Training data may involve translation, see `judge/translate_training_data/`.
-
-**2. Judge Model Answers:**
-   - Use the following command to have the judge model evaluate the answers generated in the previous steps. This typically calls scripts in `judge/run_experiments/`.
-```bash
-sbatch judge/run_experiments/judge.slurm
-```
-
-**3. Process Judge Results:**
-   - The script `judge/judge_results.py` can be used to process or aggregate the outputs from the judge models.
-
-**4. Evaluate Judges:**
-   - Compare the judge model's evaluations against manual annotations:
-```bash
-python judge/correlate_to_manual.py
-```
 
 ## Cite this work 
 
