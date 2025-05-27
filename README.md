@@ -9,7 +9,7 @@ We introduce a professionally translated extension of the TruthfulQA benchmark d
 
 * **Paper:** [https://arxiv.org/abs/2502.09387](https://arxiv.org/abs/2502.09387)
 * **Dataset:** [https://huggingface.co/datasets/HiTZ/truthfulqa-multi](https://huggingface.co/datasets/HiTZ/truthfulqa-multi)
-* **Judges:** [Link to Hugging Face judges - to be added](https://huggingface.co/collections/HiTZ/multilingual-truthfulqa-682f33d0d1d5a60d13604eb6)
+* **Judges:** [https://huggingface.co/collections/HiTZ/multilingual-truthfulqa-682f33d0d1d5a60d13604eb6](https://huggingface.co/collections/HiTZ/multilingual-truthfulqa-682f33d0d1d5a60d13604eb6)
 
 ## Repository Structure
 
