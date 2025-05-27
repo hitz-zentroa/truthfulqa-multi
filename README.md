@@ -9,7 +9,7 @@ We introduce a professionally translated extension of the TruthfulQA benchmark d
 
 * **Paper:** [https://arxiv.org/abs/2502.09387](https://arxiv.org/abs/2502.09387)
 * **Dataset:** [https://huggingface.co/datasets/HiTZ/truthfulqa-multi](https://huggingface.co/datasets/HiTZ/truthfulqa-multi)
-* **Judges:** [Link to Hugging Face judges - to be added]
+* **Judges:** [Link to Hugging Face judges - to be added](https://huggingface.co/collections/HiTZ/multilingual-truthfulqa-682f33d0d1d5a60d13604eb6)
 
 ## Repository Structure
 
@@ -68,11 +68,11 @@ python analysis/iaa_mc2.py
 
 Scripts in `analysis/compare_to_MT_translation/` are used to compare results obtained using human-translated data versus machine-translated data.
 
--   **`check_translation_quality.py`**: Evaluates the quality of machine-translated questions and answers against human translations using metrics like BLEU, CHRF, etc. It outputs scores to the console and saves any errors to `analysis/compare_to_MT_translation/errors.csv`.
+-   **`check_translation_quality.py`**: Evaluates the quality of machine-translated questions and answers against human translations using metrics like BLEU, CHRF, etc.
     ```bash
     python analysis/compare_to_MT_translation/check_translation_quality.py
     ```
--   **`comparison.py`**: Compares judge outputs for human-translated data versus machine-translated data (from `judge/judge_output/MT-claude/`). It calculates agreement and identifies instances where judgments differ, saving these to `analysis/compare_to_MT_translation/check_instances.csv` and `analysis/compare_to_MT_translation/check_instances_3wrong.csv`.
+-   **`comparison.py`**: Compares judge outputs for human-translated data versus machine-translated data (from `judge/judge_output/MT-claude/`). It calculates agreement and identifies instances where judgments differ.
     ```bash
     python analysis/compare_to_MT_translation/comparison.py
     ```
@@ -84,9 +84,9 @@ Scripts in `analysis/compare_to_MT_translation/` are used to compare results obt
 
 ### Cultural Nuances Analysis
 
-Scripts in `analysis/cultural_nuances/` are used to investigate if there are differences in model performance on questions with local/cultural nuances versus global questions. It relies on a predefined list of culturally specific instances (likely from `veritasqa.csv`).
+Scripts in `analysis/cultural_nuances/` are used to investigate if there are differences in model performance on questions with local/cultural nuances versus global questions. It relies on a predefined list of culturally specific instances from VeritasQA.
 
--   **`test_local_instances.py`**: Loads judge results, separates instances based on whether they are in the `veritasqa.csv` list (global) or not (local), and then calculates and outputs performance metrics for these two subsets. Results are saved to `analysis/cultural_nuances/results.csv`.
+-   **`test_local_instances.py`**: Loads judge results, separates instances based on whether they are in the VeritasQA list (global) or not (local), and then calculates and outputs performance metrics for these two subsets. 
     ```bash
     python analysis/cultural_nuances/test_local_instances.py
     ```
@@ -113,31 +113,19 @@ sbatch judge/run_experiments/judge.slurm
 ```bash
 python judge/correlate_to_manual.py
 ```
-   - Further details and results related to judging can be found in `judge/README.md`, `judge/iaa_informativeness.txt`, and `judge/report_results.txt`.
 
-### Run Machine Translation Experiments
-
-To run the machine translation experiments, you can use the provided Slurm scripts:
-
-For smaller models:
-```bash
-sbatch MT_experiments/generative.slurm
-```
-
-For larger models:
-```bash
-sbatch MT_experiments/generative_big.slurm
-```
-These scripts will execute the relevant experiment scripts located in the `MT_experiments/run/` directory.
-
-Judge the answers with the judge-model:
+## Cite this work 
 
 ```
-sbatch judge/run_experiments/judge.slurm
+@misc{figueras2025truthknowslanguageevaluating,
+      title={Truth Knows No Language: Evaluating Truthfulness Beyond English}, 
+      author={Blanca Calvo Figueras and Eneko Sagarzazu and Julen Etxaniz and Jeremy Barnes and Pablo Gamallo and Iria De Dios Flores and Rodrigo Agerri},
+      year={2025},
+      eprint={2502.09387},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2502.09387}, 
+}
 ```
 
-Evaluate the judges:
-
-```
-python judge/correlate_to_manual.py
-```
+For questions contact blanca.calvo@ehu.eus and rodrigo.agerri@ehu.eus
